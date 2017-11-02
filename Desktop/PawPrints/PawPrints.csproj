@@ -63,6 +63,14 @@
     <Compile Include="AnimalListForm.Designer.cs">
       <DependentUpon>AnimalListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataViewMockup.cs">
+      <DependentUpon>DataViewMockup.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewMockup.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataViewMockup.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +104,17 @@
     </None>
     <None Include="AnimalDataSet.xss">
       <DependentUpon>AnimalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataViewMockup.xsc">
+      <DependentUpon>DataViewMockup.xsd</DependentUpon>
+    </None>
+    <None Include="DataViewMockup.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataViewMockup.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataViewMockup.xss">
+      <DependentUpon>DataViewMockup.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
