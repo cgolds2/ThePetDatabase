@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblDomain = new System.Windows.Forms.Label();
+            this.txtDomain = new System.Windows.Forms.TextBox();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(97, 149);
+            this.btnLogin.Location = new System.Drawing.Point(224, 369);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 0;
@@ -45,29 +51,81 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(87, 97);
+            this.txtUsername.Location = new System.Drawing.Point(187, 294);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 20);
+            this.txtUsername.Size = new System.Drawing.Size(150, 20);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(87, 123);
+            this.txtPassword.Location = new System.Drawing.Point(187, 333);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.Size = new System.Drawing.Size(150, 20);
             this.txtPassword.TabIndex = 2;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(184, 278);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 3;
+            this.lblUsername.Text = "Username";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(186, 317);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.TabIndex = 4;
+            this.lblPassword.Text = "Password";
+            // 
+            // lblDomain
+            // 
+            this.lblDomain.AutoSize = true;
+            this.lblDomain.Location = new System.Drawing.Point(184, 239);
+            this.lblDomain.Name = "lblDomain";
+            this.lblDomain.Size = new System.Drawing.Size(43, 13);
+            this.lblDomain.TabIndex = 5;
+            this.lblDomain.Text = "Domain";
+            // 
+            // txtDomain
+            // 
+            this.txtDomain.Location = new System.Drawing.Point(186, 255);
+            this.txtDomain.Name = "txtDomain";
+            this.txtDomain.Size = new System.Drawing.Size(151, 20);
+            this.txtDomain.TabIndex = 6;
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.BackgroundImage = global::PawPrints.Properties.Resources.PawPrintsLogo1;
+            this.pnlLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlLogo.Location = new System.Drawing.Point(12, 12);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(507, 224);
+            this.pnlLogo.TabIndex = 7;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(531, 422);
+            this.Controls.Add(this.pnlLogo);
+            this.Controls.Add(this.txtDomain);
+            this.Controls.Add(this.lblDomain);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Paw Prints Login Form";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,5 +136,11 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblDomain;
+        private System.Windows.Forms.TextBox txtDomain;
+        private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Panel pnlLogo;
     }
 }

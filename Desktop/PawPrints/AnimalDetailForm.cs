@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace PawPrints
 {
-    public partial class AnimalListForm : Form
+    public partial class AnimalDetailForm : Form
     {
-        public AnimalListForm()
+        public AnimalDetailForm()
         {
             InitializeComponent();
         }
-
-        private void AnimalListForm_Load(object sender, EventArgs e)
+        private void AnimalForm_Load(object sender, EventArgs e)
         {
             Form frm = this;
             using (var bmp = new Bitmap(frm.Width, frm.Height))
@@ -28,6 +27,11 @@ namespace PawPrints
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtNotes_TextChanged(object sender, EventArgs e)
         {
 
         }

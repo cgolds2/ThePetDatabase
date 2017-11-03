@@ -2,9 +2,11 @@ D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\PawPrints\bin\Debug\
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\bin\Debug\PawPrints.exe.config
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\bin\Debug\PawPrints.exe
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\bin\Debug\PawPrints.pdb
-D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.csprojResolveAssemblyReference.cache
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.LoginForm.resources
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.Properties.Resources.resources
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.csproj.GenerateResource.Cache
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.exe
 D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.pdb
+D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.csprojResolveAssemblyReference.cache
+D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.AnimalListForm.resources
+D:\Connor\Documents\GitHub\ThePetDatabase\Desktop\PawPrints\obj\Debug\PawPrints.AnimalDetailForm.resources
