@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace PawPrints
 {
-    public partial class AnimalDetailForm : Form
+    public partial class AddEditForm : Form
     {
-        public AnimalDetailForm()
+        public AddEditForm()
         {
             InitializeComponent();
         }
-        private void AnimalForm_Load(object sender, EventArgs e)
+
+        private void AddEditForm_Load(object sender, EventArgs e)
         {
             Form frm = this;
             using (var bmp = new Bitmap(frm.Width, frm.Height))
@@ -24,17 +25,6 @@ namespace PawPrints
                 frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
                 bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txtNotes_TextChanged(object sender, EventArgs e)
-        {
-           
-
         }
     }
 }

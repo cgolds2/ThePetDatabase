@@ -34,14 +34,12 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.lblDomain = new System.Windows.Forms.Label();
-            this.txtDomain = new System.Windows.Forms.TextBox();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(224, 369);
+            this.btnLogin.Location = new System.Drawing.Point(229, 344);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 0;
@@ -51,14 +49,14 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(187, 294);
+            this.txtUsername.Location = new System.Drawing.Point(192, 269);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(150, 20);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(187, 333);
+            this.txtPassword.Location = new System.Drawing.Point(192, 308);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(150, 20);
@@ -67,7 +65,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(184, 278);
+            this.lblUsername.Location = new System.Drawing.Point(189, 253);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(55, 13);
             this.lblUsername.TabIndex = 3;
@@ -76,27 +74,11 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(186, 317);
+            this.lblPassword.Location = new System.Drawing.Point(191, 292);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password";
-            // 
-            // lblDomain
-            // 
-            this.lblDomain.AutoSize = true;
-            this.lblDomain.Location = new System.Drawing.Point(184, 239);
-            this.lblDomain.Name = "lblDomain";
-            this.lblDomain.Size = new System.Drawing.Size(43, 13);
-            this.lblDomain.TabIndex = 5;
-            this.lblDomain.Text = "Domain";
-            // 
-            // txtDomain
-            // 
-            this.txtDomain.Location = new System.Drawing.Point(186, 255);
-            this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(151, 20);
-            this.txtDomain.TabIndex = 6;
             // 
             // pnlLogo
             // 
@@ -111,10 +93,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 422);
+            this.ClientSize = new System.Drawing.Size(531, 383);
             this.Controls.Add(this.pnlLogo);
-            this.Controls.Add(this.txtDomain);
-            this.Controls.Add(this.lblDomain);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtPassword);
@@ -138,8 +118,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblDomain;
-        private System.Windows.Forms.TextBox txtDomain;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel pnlLogo;
     }

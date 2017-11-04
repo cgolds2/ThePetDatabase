@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditForm.Designer.cs">
+      <DependentUpon>AddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnimalDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,6 +78,12 @@
     <Compile Include="AnimalListForm.Designer.cs">
       <DependentUpon>AnimalListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateById.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateById.Designer.cs">
+      <DependentUpon>CreateById.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataViewMockup.cs">
       <DependentUpon>DataViewMockup.xsd</DependentUpon>
     </Compile>
@@ -82,11 +100,26 @@
     </Compile>
     <Compile Include="ProgramMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadImageForm.Designer.cs">
+      <DependentUpon>UploadImageForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEditForm.resx">
+      <DependentUpon>AddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AnimalDetailForm.resx">
       <DependentUpon>AnimalDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnimalListForm.resx">
       <DependentUpon>AnimalListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateById.resx">
+      <DependentUpon>CreateById.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -101,6 +134,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UploadImageForm.resx">
+      <DependentUpon>UploadImageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AnimalDataSet.xsc">
       <DependentUpon>AnimalDataSet.xsd</DependentUpon>
     </None>

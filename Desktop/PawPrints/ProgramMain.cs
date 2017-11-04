@@ -17,6 +17,27 @@ namespace PawPrints
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
+
+           
+
+            Form x = new AddEditForm();
+            x.Show();
+            x.Close();
+            x = new AdminForm();
+            x.Show();
+            x.Close();
+             x = new AnimalDetailForm();
+            x.Show();
+            x.Close();
+             x = new AnimalListForm();
+            x.Show();
+            x.Close();
+             x = new CreateById();
+            x.Show();
+            x.Close();
+            x = new UploadImageForm();
+            x.Show();
+            x.Close();
         }
     }
 }

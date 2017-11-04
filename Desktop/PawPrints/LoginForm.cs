@@ -26,6 +26,7 @@ namespace PawPrints
             var animalListForm = new AnimalListForm();
             animalListForm.ShowDialog();
             this.Close();
+            
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
