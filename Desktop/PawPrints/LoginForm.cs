@@ -22,10 +22,19 @@ namespace PawPrints
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dcrypt.it/decrypt/paste");
-            this.Hide();
-            var animalListForm = new AnimalListForm();
-            animalListForm.ShowDialog();
-            this.Close();
+            using(UploadImageForm u = new UploadImageForm(true))
+            {
+                DialogResult res = u.ShowDialog();
+                if(res == DialogResult.OK)
+                {
+                    Console.WriteLine("Okay");
+                    
+                }
+            }
+            //this.Hide();
+            //var transitionForm = new UploadImageForm();
+            //transitionForm.ShowDialog();
+            //this.Close();
             
         }
 

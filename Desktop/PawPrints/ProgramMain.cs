@@ -20,24 +20,24 @@ namespace PawPrints
 
            
 
-            Form x = new AddEditForm();
-            x.Show();
-            x.Close();
-            x = new AdminForm();
-            x.Show();
-            x.Close();
-             x = new AnimalDetailForm();
-            x.Show();
-            x.Close();
-             x = new AnimalListForm();
-            x.Show();
-            x.Close();
-             x = new CreateById();
-            x.Show();
-            x.Close();
-            x = new UploadImageForm();
-            x.Show();
-            x.Close();
+            //Form x = new AddEditForm();
+            //x.Show();
+            //x.Close();
+            //x = new AdminForm();
+            //x.Show();
+            //x.Close();
+            // x = new AnimalDetailForm();
+            //x.Show();
+            //x.Close();
+            // x = new AnimalListForm();
+            //x.Show();
+            //x.Close();
+            // x = new CreateById();
+            //x.Show();
+            //x.Close();
+            //x = new UploadImageForm();
+            //x.Show();
+            //x.Close();
         }
     }
 }
