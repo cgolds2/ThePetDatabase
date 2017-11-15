@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataViewMockup" targetNamespace="http://tempuri.org/DataViewMockup.xsd" xmlns:mstns="http://tempuri.org/DataViewMockup.xsd" xmlns="http://tempuri.org/DataViewMockup.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataViewMockup" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataViewMockup" msprop:Generator_UserDSName="DataViewMockup">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PetData" msprop:Generator_TableClassName="PetDataDataTable" msprop:Generator_TableVarName="tablePetData" msprop:Generator_TablePropName="PetData" msprop:Generator_RowDeletingName="PetDataRowDeleting" msprop:Generator_RowChangingName="PetDataRowChanging" msprop:Generator_RowEvHandlerName="PetDataRowChangeEventHandler" msprop:Generator_RowDeletedName="PetDataRowDeleted" msprop:Generator_UserTableName="PetData" msprop:Generator_RowChangedName="PetDataRowChanged" msprop:Generator_RowEvArgName="PetDataRowChangeEvent" msprop:Generator_RowClassName="PetDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
+              <xs:element name="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_UserColumnName="Age" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" type="xs:string" minOccurs="0" />
+              <xs:element name="Breed" msprop:Generator_ColumnVarNameInTable="columnBreed" msprop:Generator_ColumnPropNameInRow="Breed" msprop:Generator_ColumnPropNameInTable="BreedColumn" msprop:Generator_UserColumnName="Breed" type="xs:string" minOccurs="0" />
+              <xs:element name="AnimalType" msprop:Generator_ColumnVarNameInTable="columnAnimalType" msprop:Generator_ColumnPropNameInRow="AnimalType" msprop:Generator_ColumnPropNameInTable="AnimalTypeColumn" msprop:Generator_UserColumnName="AnimalType" type="xs:string" minOccurs="0" />
+              <xs:element name="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_UserColumnName="Weight" type="xs:string" minOccurs="0" />
+              <xs:element name="ShelterID" msprop:Generator_ColumnVarNameInTable="columnShelterID" msprop:Generator_ColumnPropNameInRow="ShelterID" msprop:Generator_ColumnPropNameInTable="ShelterIDColumn" msprop:Generator_UserColumnName="ShelterID" type="xs:string" minOccurs="0" />
+              <xs:element name="ProfilePicture" msprop:Generator_ColumnVarNameInTable="columnProfilePicture" msprop:Generator_ColumnPropNameInRow="ProfilePicture" msprop:Generator_ColumnPropNameInTable="ProfilePictureColumn" msprop:Generator_UserColumnName="ProfilePicture" type="xs:string" minOccurs="0" />
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:string" minOccurs="0" />
+              <xs:element name="ChipID" msprop:Generator_ColumnVarNameInTable="columnChipID" msprop:Generator_ColumnPropNameInRow="ChipID" msprop:Generator_ColumnPropNameInTable="ChipIDColumn" msprop:Generator_UserColumnName="ChipID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
+              <xs:element name="Username" msprop:Generator_ColumnVarNameInTable="columnUsername" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_UserColumnName="Username" type="xs:string" minOccurs="0" />
+              <xs:element name="PasswordHash" msprop:Generator_ColumnVarNameInTable="columnPasswordHash" msprop:Generator_ColumnPropNameInRow="PasswordHash" msprop:Generator_ColumnPropNameInTable="PasswordHashColumn" msprop:Generator_UserColumnName="PasswordHash" type="xs:string" minOccurs="0" />
+              <xs:element name="ShelterID" msprop:Generator_ColumnVarNameInTable="columnShelterID" msprop:Generator_ColumnPropNameInRow="ShelterID" msprop:Generator_ColumnPropNameInTable="ShelterIDColumn" msprop:Generator_UserColumnName="ShelterID" type="xs:string" minOccurs="0" />
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Shelters" msprop:Generator_TableClassName="SheltersDataTable" msprop:Generator_TableVarName="tableShelters" msprop:Generator_TablePropName="Shelters" msprop:Generator_RowDeletingName="SheltersRowDeleting" msprop:Generator_RowChangingName="SheltersRowChanging" msprop:Generator_RowEvHandlerName="SheltersRowChangeEventHandler" msprop:Generator_RowDeletedName="SheltersRowDeleted" msprop:Generator_UserTableName="Shelters" msprop:Generator_RowChangedName="SheltersRowChanged" msprop:Generator_RowEvArgName="SheltersRowChangeEvent" msprop:Generator_RowClassName="SheltersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" type="xs:string" minOccurs="0" />
+              <xs:element name="Website" msprop:Generator_ColumnVarNameInTable="columnWebsite" msprop:Generator_ColumnPropNameInRow="Website" msprop:Generator_ColumnPropNameInTable="WebsiteColumn" msprop:Generator_UserColumnName="Website" type="xs:string" minOccurs="0" />
+              <xs:element name="PhoneNumber" msprop:Generator_ColumnVarNameInTable="columnPhoneNumber" msprop:Generator_ColumnPropNameInRow="PhoneNumber" msprop:Generator_ColumnPropNameInTable="PhoneNumberColumn" msprop:Generator_UserColumnName="PhoneNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="AdminID" msprop:Generator_ColumnVarNameInTable="columnAdminID" msprop:Generator_ColumnPropNameInRow="AdminID" msprop:Generator_ColumnPropNameInTable="AdminIDColumn" msprop:Generator_UserColumnName="AdminID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Pictures" msprop:Generator_TableClassName="PicturesDataTable" msprop:Generator_TableVarName="tablePictures" msprop:Generator_TablePropName="Pictures" msprop:Generator_RowDeletingName="PicturesRowDeleting" msprop:Generator_RowChangingName="PicturesRowChanging" msprop:Generator_RowEvHandlerName="PicturesRowChangeEventHandler" msprop:Generator_RowDeletedName="PicturesRowDeleted" msprop:Generator_UserTableName="Pictures" msprop:Generator_RowChangedName="PicturesRowChanged" msprop:Generator_RowEvArgName="PicturesRowChangeEvent" msprop:Generator_RowClassName="PicturesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
+              <xs:element name="PetID" msprop:Generator_ColumnVarNameInTable="columnPetID" msprop:Generator_ColumnPropNameInRow="PetID" msprop:Generator_ColumnPropNameInTable="PetIDColumn" msprop:Generator_UserColumnName="PetID" type="xs:string" minOccurs="0" />
+              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PetData" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Users_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Users" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="UsersKey1">
+      <xs:selector xpath=".//mstns:Users" />
+      <xs:field xpath="mstns:ID" />
+      <xs:field xpath="mstns:email" />
+    </xs:unique>
+    <xs:unique name="Shelters_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Shelters" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Pictures_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Pictures" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:keyref name="FK_PetData_Pictures" refer="Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Pictures" />
+      <xs:field xpath="mstns:PetID" />
+    </xs:keyref>
+    <xs:keyref name="FK_Users_Shelters" refer="Users_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Shelters" />
+      <xs:field xpath="mstns:AdminID" />
+    </xs:keyref>
+    <xs:keyref name="FK_Shelters_Users" refer="Shelters_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Users" />
+      <xs:field xpath="mstns:ShelterID" />
+    </xs:keyref>
+    <xs:keyref name="FK_Shelters_PetData" refer="Shelters_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:PetData" />
+      <xs:field xpath="mstns:ShelterID" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
