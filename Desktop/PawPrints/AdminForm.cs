@@ -26,5 +26,78 @@ namespace PawPrints
                 bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
             }
         }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            if (areFieldsBlank())
+            {
+                MessageBox.Show("Username, Password, and Email must not be blank");
+            }else
+            {
+                User u = new User();
+                u.Email = txtEmail.Text;
+                u.Password = txtPassword.Text;
+                u.Username = txtUsername.Text;
+                WebHandeler.createUser(u);
+            }
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals(""))
+            {
+                MessageBox.Show("Password must not be blank");
+            }
+            else
+            {
+                if(dgvAnimalList.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Select a user to edit password of");
+
+                }
+                else
+                {
+                    //Grid is layed out as id-email-username
+                    int id = (int)dgvAnimalList.SelectedRows[0].Cells[0].Value;
+                    User u = new User();
+                    u.Email = (string)dgvAnimalList.SelectedRows[0].Cells[1].Value;
+                    u.Password = txtPassword.Text;
+                    u.Username = (string)dgvAnimalList.SelectedRows[0].Cells[2].Value;
+                    WebHandeler.updateUser(u, id);
+                }
+      
+            }
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (dgvAnimalList.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a user to delete");
+
+            }
+            else
+            {
+
+
+                //Grid is layed out as id-email-username
+                int id = (int)dgvAnimalList.SelectedRows[0].Cells[0].Value;
+                string username = (string)dgvAnimalList.SelectedRows[0].Cells[2].Value;
+
+                DialogResult result = MessageBox.Show("Do you want to delete user " + username, "Confirmation", MessageBoxButtons.YesNoCancel);
+                if (result == DialogResult.Yes)
+                {
+                    WebHandeler.deleteUsers(id);
+
+                }
+
+
+            }
+        }
+        private bool areFieldsBlank()
+        {
+            return txtPassword.Text.Equals("") || txtUsername.Text.Equals("") || txtEmail.Text.Equals("");
+
+        }
     }
 }
