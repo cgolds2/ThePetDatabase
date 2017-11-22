@@ -16,26 +16,36 @@ namespace PawPrints
         public LoginForm()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dcrypt.it/decrypt/paste");
-            using(UploadImageForm u = new UploadImageForm(true))
+            User u = WebHandeler.verifyUser(txtUsername.Text, txtPassword.Text);
+
+            if (u == null)
             {
-                DialogResult res = u.ShowDialog();
-                if(res == DialogResult.OK)
-                {
-                    Console.WriteLine("Okay");
-                    
-                }
+                MessageBox.Show("Incorrect Login");
             }
-            //this.Hide();
-            //var transitionForm = new UploadImageForm();
-            //transitionForm.ShowDialog();
-            //this.Close();
-            
+            else
+            {
+                ProgramMain.currentUser = u;
+            }
+            //using(UploadImageForm u = new UploadImageForm(true))
+            //{
+            //    DialogResult res = u.ShowDialog();
+            //    if(res == DialogResult.OK)
+            //    {
+            //        Console.WriteLine("Okay");
+
+            //    }
+        //}
+        //this.Hide();
+        //var transitionForm = new UploadImageForm();
+        //transitionForm.ShowDialog();
+        //this.Close();
+    
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

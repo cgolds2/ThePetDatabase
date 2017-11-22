@@ -23,17 +23,26 @@ namespace PawPrints
             return dynReturn;
         }
 
-        #region GETs
+
+        #region Animal
         public static Animal getAnimal(int animalID)
         {
-            string returnText = RestService.GetCall(baseuri + "read_pets.php");
-            Animal returnAnimal = JsonConvert.DeserializeObject<Animal>(returnText);
-            throw new NotImplementedException();
+
+            string text = (RestService.GetCall(baseuri + "get_pets.php"));
+            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(text);
+            foreach (Animal animal in allPets.pets)
+            {
+                if (animal.id == animalID)
+                {
+                    return animal;
+                }
+            }
+            return null;
         }
         public static List<Animal> getAllAnimals(int shelterID)
         {
 
-            string text = (RestService.GetCall(baseuri + "read_pets.php"));
+            string text = (RestService.GetCall(baseuri + "get_pets.php"));
             PetClass allPets = JsonConvert.DeserializeObject<PetClass>(text);
             List<Animal> ret = new List<Animal>();
 
@@ -47,37 +56,72 @@ namespace PawPrints
             return ret;
 
         }
+        public static int addPet(Animal pet)
+        {
+            string jsonString = JsonConvert.SerializeObject(pet);
+            JObject ob = JObject.Parse(jsonString);
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "add_pet.php"));
+            return int.Parse(result);
+        }
+        public static int updatePet(Animal pet)
+        {
+            string jsonString = JsonConvert.SerializeObject(pet);
+            JObject ob = JObject.Parse(jsonString);
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + pet.id));
+            return int.Parse(result);
+        }
+        public static int deleteAnimal(int petID)
+        {
+            string result = (RestService.PostCall("", baseuri + "delete_pet?id=" + petID));
+            return int.Parse(result);
+        }
+
+        #endregion
+
+        #region Picture
         public static List<Image> getAnimalPictures(int animalID)
         {
             throw new NotImplementedException();
         }
-        public static List<Shelter> getShelters()
+        public static int addPicture(Image picture)
+        {
+            throw new NotImplementedException();
+        }
+        public static int deletePicture(int pictureID)
         {
             throw new NotImplementedException();
         }
         #endregion
 
-        #region POSTs
-        public static int addPet(Animal pet)
+        #region Shelter
+        public static List<Shelter> getAllShelters()
         {
-            string jsonString = JsonConvert.SerializeObject(pet);
-            JObject ob = JObject.Parse(jsonString);
-            string result = (RestService.PostCall(ob.ToString(), baseuri + ""));
-            return int.Parse(result);
-            throw new NotImplementedException();
-        }
-        public static int updatePet(Animal pet, int petID)
-        {
-            throw new NotImplementedException();
+            string returnText = (RestService.GetCall(baseuri + "get_shelters.php"));
+            ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(returnText);
+            return totalList.shelters;
         }
         public static int createShelter(Shelter shelter)
         {
-            throw new NotImplementedException();
+            string jsonString = JsonConvert.SerializeObject(shelter);
+            JObject ob = JObject.Parse(jsonString);
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "add_shelter.php"));
+            return int.Parse(result);
         }
-        public static int updateShelter(Shelter shelter, int shelterID)
+        public static int updateShelter(Shelter shelter)
         {
-            throw new NotImplementedException();
+            string jsonString = JsonConvert.SerializeObject(shelter);
+            JObject ob = JObject.Parse(jsonString);
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + shelter.id));
+            return int.Parse(result);
         }
+        public static int deleteShelter(int shelterID)
+        {
+            string result = (RestService.PostCall("", baseuri + "delete_shelter?id=" + shelterID));
+            return int.Parse(result);
+        }
+        #endregion
+
+        #region User
         public static int updateUser(User user, int userID)
         {
             throw new NotImplementedException();
@@ -90,30 +134,41 @@ namespace PawPrints
         {
             throw new NotImplementedException();
         }
-        public static int addPicture(Image picture)
-        {
-            throw new NotImplementedException();
-        }
-        public static int deletePicture(int pictureID)
-        {
-            throw new NotImplementedException();
-        }
         public static int deleteUsers(int userID)
         {
             throw new NotImplementedException();
         }
-        public static int deleteShelter(int shelterID)
+
+        /// <summary>
+        /// user id if true, returns -1 if false
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password">Unhashed</param>
+        /// <returns>-1 on fail, user id on true</returns>
+        public static User verifyUser(string username, string password)
         {
-            throw new NotImplementedException();
+            JObject ob = new JObject();
+            ob["username"] = username;
+            ob["password"] = password;
+
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "verify_user.php"));
+            if (result.Equals("-1"))
+            {
+                return null;
+            }
+           User u = JsonConvert.DeserializeObject<User>(result);
+            return u;
         }
-        public static int deletePet(int petID)
-        {
-            throw new NotImplementedException();
-        } 
         #endregion
+
+
     }
      class PetClass
     {
         public List<Animal> pets { get; set; }
+    }
+    class ShelterClass
+    {
+        public List<Shelter> shelters { get; set; }
     }
 }

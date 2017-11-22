@@ -35,9 +35,9 @@ namespace PawPrints
             }else
             {
                 User u = new User();
-                u.Email = txtEmail.Text;
-                u.Password = txtPassword.Text;
-                u.Username = txtUsername.Text;
+                u.email = txtEmail.Text;
+                u.password = txtPassword.Text;
+                u.username = txtUsername.Text;
                 WebHandeler.createUser(u);
             }
         }
@@ -60,9 +60,9 @@ namespace PawPrints
                     //Grid is layed out as id-email-username
                     int id = (int)dgvAnimalList.SelectedRows[0].Cells[0].Value;
                     User u = new User();
-                    u.Email = (string)dgvAnimalList.SelectedRows[0].Cells[1].Value;
-                    u.Password = txtPassword.Text;
-                    u.Username = (string)dgvAnimalList.SelectedRows[0].Cells[2].Value;
+                    u.email = (string)dgvAnimalList.SelectedRows[0].Cells[1].Value;
+                    u.password = txtPassword.Text;
+                    u.username = (string)dgvAnimalList.SelectedRows[0].Cells[2].Value;
                     WebHandeler.updateUser(u, id);
                 }
       
