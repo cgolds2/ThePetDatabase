@@ -13,7 +13,7 @@ namespace PawPrints
 {
     class WebHandeler
     {
-        public static string baseuri = "http://192.168.3.3/";
+        public static string baseuri = @"http://68.11.238.103:81/";
 
         public static JObject getJsonObject(string url)
         {
@@ -26,13 +26,26 @@ namespace PawPrints
         #region GETs
         public static Animal getAnimal(int animalID)
         {
-            string returnText = RestService.GetCall(baseuri + "");
+            string returnText = RestService.GetCall(baseuri + "read_pets.php");
             Animal returnAnimal = JsonConvert.DeserializeObject<Animal>(returnText);
             throw new NotImplementedException();
         }
         public static List<Animal> getAllAnimals(int shelterID)
         {
-            throw new NotImplementedException();
+
+            string text = (RestService.GetCall(baseuri + "read_pets.php"));
+            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(text);
+            List<Animal> ret = new List<Animal>();
+
+            foreach (Animal animal in allPets.pets)
+            {
+                if (animal.shelter_id == shelterID)
+                {
+                    ret.Add(animal);
+                }
+            }
+            return ret;
+
         }
         public static List<Image> getAnimalPictures(int animalID)
         {
@@ -98,5 +111,9 @@ namespace PawPrints
             throw new NotImplementedException();
         } 
         #endregion
+    }
+     class PetClass
+    {
+        public List<Animal> pets { get; set; }
     }
 }

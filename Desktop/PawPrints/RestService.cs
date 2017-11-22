@@ -18,12 +18,12 @@ public class RestService
         try
         {
             HttpClient client;
-            var authData = string.Format("{0}:{1}", "test", "pswd");
-            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+            //var authData = string.Format("{0}:{1}", "test", "pswd");
+            //var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
 
             client = new HttpClient();
             client.MaxResponseContentBufferSize = 256000;
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic");
 
             string html = string.Empty;
 

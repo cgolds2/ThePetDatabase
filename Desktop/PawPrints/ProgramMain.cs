@@ -14,6 +14,7 @@ namespace PawPrints
         [STAThread]
         static void Main()
         {
+            List<Animal> test = WebHandeler.getAllAnimals(1);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
