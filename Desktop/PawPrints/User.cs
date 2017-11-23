@@ -8,5 +8,15 @@ namespace PawPrints
 {
     class User
     {
+        public string email;
+        public string password;
+        public string username;
+        public int shelterID;
+
+
+        public User()
+        {
+
+        }
     }
 }
