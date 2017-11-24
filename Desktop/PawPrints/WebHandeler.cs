@@ -13,12 +13,12 @@ namespace PawPrints
 {
     class WebHandeler
     {
-        public string baseuri = @"http://68.11.238.103:812/";
+        public static string baseuri = @"http://68.11.238.103:812/";
 
 
 
         #region Animal
-        public Tuple<Animal, int> getAnimal(int animalID)
+        public static Tuple<Animal, int> getAnimal(int animalID)
         {
 
             string text = (RestService.GetCall(baseuri + "get_pets.php"));
@@ -37,7 +37,7 @@ namespace PawPrints
             }
             return null;
         }
-        public Tuple<List<Animal>, int> getAllAnimals(int shelterID)
+        public static Tuple<List<Animal>, int> getAllAnimals(int shelterID)
         {
 
             string text = (RestService.GetCall(baseuri + "get_pets.php"));
@@ -59,7 +59,7 @@ namespace PawPrints
             return Tuple.Create(ret, 1);
 
         }
-        public int addPet(Animal pet)
+        public static int addPet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
             JObject ob = JObject.Parse(jsonString);
@@ -74,14 +74,14 @@ namespace PawPrints
             }
             return 1;
         }
-        public int updatePet(Animal pet)
+        public static int updatePet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + pet.id));
             return int.Parse(result);
         }
-        public int deleteAnimal(int petID)
+        public static int deleteAnimal(int petID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_pet?id=" + petID));
             return int.Parse(result);
@@ -90,22 +90,22 @@ namespace PawPrints
         #endregion
 
         #region Picture
-        public Tuple<List<Image>, int> getAnimalPictures(int animalID)
+        public static Tuple<List<Image>, int> getAnimalPictures(int animalID)
         {
             throw new NotImplementedException();
         }
-        public int addPicture(Image picture)
+        public static int addPicture(Image picture)
         {
             throw new NotImplementedException();
         }
-        public int deletePicture(int pictureID)
+        public static int deletePicture(int pictureID)
         {
             throw new NotImplementedException();
         }
         #endregion
 
         #region Shelter
-        public Tuple<List<Shelter>, int> getAllShelters()
+        public static Tuple<List<Shelter>, int> getAllShelters()
         {
             string returnText = (RestService.GetCall(baseuri + "get_shelters.php"));
             int temp;
@@ -116,7 +116,7 @@ namespace PawPrints
             ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(returnText);
             return Tuple.Create(totalList.shelters, 1);
         }
-        public int createShelter(Shelter shelter)
+        public static int createShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
             JObject ob = JObject.Parse(jsonString);
@@ -124,14 +124,14 @@ namespace PawPrints
 
             return int.Parse(result);
         }
-        public int updateShelter(Shelter shelter)
+        public static int updateShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + shelter.id));
             return int.Parse(result);
         }
-        public int deleteShelter(int shelterID)
+        public static int deleteShelter(int shelterID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_shelter?id=" + shelterID));
             return int.Parse(result);
@@ -139,19 +139,19 @@ namespace PawPrints
         #endregion
 
         #region User
-        public int updateUser(User user, int userID)
+        public static int updateUser(User user, int userID)
         {
             throw new NotImplementedException();
         }
-        public Tuple<List<User>, int> getUsers(int userID)
+        public static Tuple<List<User>, int> getUsers(int userID)
         {
             throw new NotImplementedException();
         }
-        public Tuple<List<User>, int> createUser(User user)
+        public static Tuple<List<User>, int> createUser(User user)
         {
             throw new NotImplementedException();
         }
-        public int deleteUsers(int userID)
+        public static int deleteUsers(int userID)
         {
             throw new NotImplementedException();
         }
@@ -162,7 +162,7 @@ namespace PawPrints
         /// <param name="username"></param>
         /// <param name="password">Unhashed</param>
         /// <returns>-1 on fail, -2 on server timeout, 1 on response</returns>
-        public Tuple<User, int> verifyUser(string username, string password)
+        public static Tuple<User, int> verifyUser(string username, string password)
         {
             JObject ob = new JObject();
             ob["username"] = username;
