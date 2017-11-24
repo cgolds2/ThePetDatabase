@@ -17,6 +17,8 @@ public class RestService
 
         try
         {
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+
             HttpClient client;
             //var authData = string.Format("{0}:{1}", "test", "pswd");
             //var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
@@ -43,6 +45,10 @@ public class RestService
 
         catch (Exception ex)
         {
+            if (ex.InnerException.Message.Equals("An error occurred while sending the request."))
+            {
+                return "-2";
+            }
             return ex.Message;
 
         }
@@ -55,6 +61,7 @@ public class RestService
     {
         try
         {
+            System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
             HttpClient client;
             var authData = string.Format("{0}:{1}", "test", "pswd");
             var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
@@ -76,8 +83,11 @@ public class RestService
         }
         catch (Exception ex)
         {
-
-            return ex.Message;
+            if (ex.InnerException.Message.Equals("An error occurred while sending the request."))
+            {
+                return "-2";
+            }
+            return ex.InnerException.Message;
         }
 
     }
