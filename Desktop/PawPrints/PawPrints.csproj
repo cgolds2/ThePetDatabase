@@ -78,12 +78,6 @@
     <Compile Include="AnimalListForm.Designer.cs">
       <DependentUpon>AnimalListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateById.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateById.Designer.cs">
-      <DependentUpon>CreateById.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataViewMockup.cs">
       <DependentUpon>DataViewMockup.xsd</DependentUpon>
     </Compile>
@@ -121,9 +115,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AnimalListForm.resx">
       <DependentUpon>AnimalListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateById.resx">
-      <DependentUpon>CreateById.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
