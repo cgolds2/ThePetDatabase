@@ -34,6 +34,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.petName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAdmin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimalList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,11 +88,22 @@
             this.Picture.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Picture.Width = 200;
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Location = new System.Drawing.Point(201, 465);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(75, 23);
+            this.btnAdmin.TabIndex = 6;
+            this.btnAdmin.Text = "Admin Controls";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // AnimalListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 497);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnAddPet);
             this.Controls.Add(this.btnEditPet);
             this.Controls.Add(this.dgvAnimalList);
@@ -111,5 +123,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn petName;
         private System.Windows.Forms.DataGridViewImageColumn Picture;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }

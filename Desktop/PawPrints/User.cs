@@ -11,7 +11,8 @@ namespace PawPrints
         public string email;
         public string password;
         public string username;
-        public int shelterID;
+        public int shelter_id;
+        public int id;
 
 
         public User()
