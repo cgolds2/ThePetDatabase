@@ -42,8 +42,7 @@ namespace PawPrints
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-            //TODO close
+            this.Close();
         }
     }
 }

@@ -54,13 +54,11 @@ namespace PawPrints
             }
             animal.size = txtSize.Text;
             animal.notes = txtNotes.Text;
-            //TODO change picture in here?
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //TODO close
-            throw new NotImplementedException;
+            this.Close();
         }
     }
 }

@@ -26,5 +26,21 @@ namespace PawPrints
                 bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
             }
         }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            //choose image
+            throw new NotImplementedException();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
