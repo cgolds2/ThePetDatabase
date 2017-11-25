@@ -1,0 +1,396 @@
+@media (max-width: 768px) {
+  #header { font-size: 3em !important; }
+}
+
+<style>
+  html {
+    margin:0px;
+    padding:0px;
+    width:100%;
+  }
+  .pawprints-container {
+    background-image: url('simple-bg.png');
+    width: 100%;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+  #header{ 
+    color: black;
+    font-size: 5em;
+    text-align: center;
+    font-family: 'PawPrints Medium';
+    outline: black;
+    text-decoration: none;
+  }
+  #box-headers{
+    font-size: 1.5em;
+    font-family: 'Ikaros Sans Regular', sans-serif;
+    background-color: #98a075;
+    padding: 10px 10px;
+    color: black;
+  }
+  .recent-pets-header{
+    text-align: left;
+    font-size: 1.5em;
+    font-family: 'Ikaros Sans Regular', sans-serif;
+    color: black;
+    padding: 10px 35px;
+    margin-right: auto;
+  }
+  #search{
+    color: black;
+    padding:4px 0;
+    padding-left: 20px;
+    padding-right: 50px;
+    font-family: 'Aaux Next Regular', sans-serif;
+    font-size: 1em;
+    margin-right: 25px;
+    background-image: url('searchIcon.png');
+    background-repeat: no-repeat;
+    background-position: 0px 5px;
+    width: 300px;
+  }
+  .bar {
+    background-color: #373a3c;
+    padding:4px 16px;
+    outline:none;
+    display:flex;
+    align-items: center;
+    justify-content: space-between
+  }
+  .bar {
+    width: 100%;
+  }
+  .bar-item{
+    color: white;
+    padding:8px 16px;
+    font-family: 'Aaux Next Regular', sans-serif;
+    font-size: 1em;
+    outline:none;
+    text-decoration: none;
+    border-right: 2px solid black;
+  }
+  .bar-item:hover{
+    color: white;
+    background-color: #373a3c;
+    font-weight: bold;
+  }
+
+  .button {
+  	color: #f9f9f9;
+    cursor: pointer;
+    background-color: black
+    box-shadow: inset 0px 0px 3px rgba(255,255,255,.5);
+  }
+  .shelter-footer { 
+    border: 1px solid #d7d7d7;
+    background-color: white;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 0 8px 12px -6px #777;
+ }
+ .shelter-img-links {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    max-width: auto;
+ }
+ .shelter-img {
+  width: 150px;
+  height: auto;
+  margin: 0 10px;
+  padding: 10px 0;
+ }
+ .recent-pet-container {
+  height: 300px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+ .pet-img-name-container {
+   border: 1px solid black;
+   height: auto;
+   margin: 0 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 0 6px 5px -6px #777;
+   background-color: white;
+ }
+ .pet-img {
+   width: 200px;
+   height: 150px;
+   text-align: center;
+ }
+
+ .recent-pets-page {
+  display: flex;
+  padding: 15px 25px;
+ }
+ #pet-name {
+  color: black;
+  text-align: center;
+  outline: none;
+  font-size: 1.5em;
+  text-decoration: none;
+  font-family: 'Elephant Ears Demo Regular', sans-serif;
+  font-weight: bold;
+  padding:10px;
+  letter-spacing: 2px;
+ }
+ .see-more-button {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Aaux Next Regular', sans-serif;
+    cursor: pointer;
+ }
+ .see-more-button:hover {
+    background-color: orange;
+ }
+
+ .copyright-footer {
+   width: 100%;
+   height: 50px;
+   background-color: #373a3c;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+ }
+ .copyright-footer{
+  text-align: center;
+  color: white;
+  font-size: 0.75em;
+  font-family: 'Aaux Next Light';
+ }
+ .social-footer {
+  margin-top: 200px;
+  height: 150px;
+  width: 100%;
+  display: flex;
+ }
+ .social-column {
+   margin: 10px 15px;
+   width: 10%;
+ }
+ .social-nav-column {
+  display: flex;
+  flex-direction: column;
+ }
+ #social-nav-text {
+  text-decoration: none;
+  font-family: 'Aaux Next Regular', sans-serif;
+  color: black;
+  padding: 10px 0;
+ }
+ #social-nav-text:hover {
+  font-weight: bolder;
+  font-size: 1.5em;
+ }
+ #social-header {
+  border-bottom: 1px dotted #373a3c;
+  font-family: 'Bebas Neue Regular', sans-serif;
+  font-size: 1.15em;
+ }
+ .social-text-column {
+   margin-top: 10px;
+ }
+ #social-text {
+  font-family: 'Aaux Next Regular', sans-serif;
+  font-size: 1em;
+  margin: 5px 0;
+ }
+.social-pawprint-logo {
+  width: 25%;
+  margin-left: 20%;
+}
+#social-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+ #pawprint-logo {
+  font-family: 'PawPrints Medium';
+  font-size: 3em;
+ }
+ #pawprint-mission{
+  font-family: 'Aaux Next Regular', sans-serif;
+  font-size: .85em;
+  width: 100%;
+  line-height: 1.5em;
+  color: black;
+  text-align: left;
+ }
+
+ .pet-modal-img {
+  width: 350px;
+  height: auto;
+  border: 5px dashed #98a075;
+  border-radius: 5px;
+ }
+ .pet-modal-header {
+    font-size: 5em;
+    font-family: 'Bebas Neue Regular', sans-serif;
+    border-bottom: 5px dotted black;
+ }
+ .pet-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    padding: 10px 5px;
+ }
+ .pet-modal-text {
+    margin: 5px 0;
+    line-height: 1.3em;
+    font-family: 'Aaux Next Regular', sans-serif;
+ }
+
+ #footer-nav-link:hover {
+  font-weight: bold;
+ }
+#myBtn {
+  background-color: white !important;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+#myBtn:focus {
+  outline: none;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+/* The Close Button */
+.close {
+  color: #eb0029;
+  margin-left: auto;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+</style>
+
+
+//Pet Page styling
+
+<style>
+header {}
+.pet-page {
+}
+.pet-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 1rem;
+  grid-column-gap: 0rem;
+}
+.pets-header {
+  text-align: left;
+  font-size: 1.5em;
+  font-family: 'Ikaros Sans Regular', sans-serif;
+  color: black;
+  padding: 10px;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+ .pet-page-img-name-container {
+   border: 2px solid #373a3c;
+   height: 300px;
+   margin: 0 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 0 6px 5px -6px #777;
+   background-color: white;
+ }
+  #pet-page-name {
+    color: black;
+    text-align: center;
+    outline: none;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-family: 'Elephant Ears Demo Regular', sans-serif;
+    font-weight: normal;
+    padding:10px;
+    letter-spacing: 2px;
+    border-bottom: 1px dotted black;
+ }
+</style>
+
+//Contact styling
+<style>
+.something{}
+#contact-header {
+  font-size: 3em;
+  margin: 20px 0;
+  font-family: 'PawPrints Medium';
+}
+
+.contact-image {
+  width: 500px !important;
+  height: auto;
+  box-shadow: 0 15px 15px 0px #777;
+}
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+</style>
