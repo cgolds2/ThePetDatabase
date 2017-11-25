@@ -9,7 +9,7 @@ namespace PawPrints
     class Animal
     {
         public int id;
-        public int age;
+        public DateTime age;
         public string name;
         public string notes;
         public string breed;

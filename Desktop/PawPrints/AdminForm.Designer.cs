@@ -28,35 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvAnimalList = new System.Windows.Forms.DataGridView();
+            this.dgvUserList = new System.Windows.Forms.DataGridView();
+            this.userID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCreateUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnChangeInfo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.userID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimalList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvAnimalList
+            // dgvUserList
             // 
-            this.dgvAnimalList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnimalList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUserList.AllowUserToAddRows = false;
+            this.dgvUserList.AllowUserToDeleteRows = false;
+            this.dgvUserList.AllowUserToOrderColumns = true;
+            this.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userID,
             this.userEmail,
             this.userName});
-            this.dgvAnimalList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAnimalList.Location = new System.Drawing.Point(12, 30);
-            this.dgvAnimalList.Name = "dgvAnimalList";
-            this.dgvAnimalList.Size = new System.Drawing.Size(395, 425);
-            this.dgvAnimalList.TabIndex = 4;
+            this.dgvUserList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvUserList.Location = new System.Drawing.Point(12, 30);
+            this.dgvUserList.Name = "dgvUserList";
+            this.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUserList.ShowEditingIcon = false;
+            this.dgvUserList.Size = new System.Drawing.Size(395, 425);
+            this.dgvUserList.TabIndex = 4;
+            this.dgvUserList.CurrentCellChanged += new System.EventHandler(this.dgvUserList_CurrentCellChanged);
+            this.dgvUserList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_RowEnter);
+            // 
+            // userID
+            // 
+            this.userID.HeaderText = "ID";
+            this.userID.Name = "userID";
+            // 
+            // userEmail
+            // 
+            this.userEmail.HeaderText = "Email";
+            this.userEmail.Name = "userEmail";
+            // 
+            // userName
+            // 
+            this.userName.HeaderText = "Name";
+            this.userName.Name = "userName";
             // 
             // label1
             // 
@@ -87,15 +109,15 @@
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
-            // btnChangePassword
+            // btnChangeInfo
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(413, 59);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(141, 23);
-            this.btnChangePassword.TabIndex = 8;
-            this.btnChangePassword.Text = "Change User Password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.btnChangeInfo.Location = new System.Drawing.Point(413, 304);
+            this.btnChangeInfo.Name = "btnChangeInfo";
+            this.btnChangeInfo.Size = new System.Drawing.Size(141, 23);
+            this.btnChangeInfo.TabIndex = 8;
+            this.btnChangeInfo.Text = "Change User Info";
+            this.btnChangeInfo.UseVisualStyleBackColor = true;
+            this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
             // 
             // label2
             // 
@@ -145,21 +167,6 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Email";
             // 
-            // userID
-            // 
-            this.userID.HeaderText = "ID";
-            this.userID.Name = "userID";
-            // 
-            // userEmail
-            // 
-            this.userEmail.HeaderText = "Email";
-            this.userEmail.Name = "userEmail";
-            // 
-            // userName
-            // 
-            this.userName.HeaderText = "Name";
-            this.userName.Name = "userName";
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,15 +178,15 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnChangePassword);
+            this.Controls.Add(this.btnChangeInfo);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnCreateUser);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvAnimalList);
+            this.Controls.Add(this.dgvUserList);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimalList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,11 +194,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvAnimalList;
+        private System.Windows.Forms.DataGridView dgvUserList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCreateUser;
         private System.Windows.Forms.Button btnDeleteUser;
-        private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.Button btnChangeInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUsername;
