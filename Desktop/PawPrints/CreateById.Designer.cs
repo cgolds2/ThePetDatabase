@@ -53,11 +53,11 @@
             this.lblAnimalID.TabIndex = 1;
             this.lblAnimalID.Text = "Animal ID";
             // 
-            // label1
+            // lblName
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 50);
-            this.label1.Name = "label1";
+            this.label1.Name = "lblName";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Image";
@@ -71,11 +71,11 @@
             this.button1.Text = "Choose Image";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnlProfilePic
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.Location = new System.Drawing.Point(67, 50);
-            this.panel1.Name = "panel1";
+            this.panel1.Name = "pnlProfilePic";
             this.panel1.Size = new System.Drawing.Size(137, 59);
             this.panel1.TabIndex = 4;
             // 

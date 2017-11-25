@@ -38,29 +38,29 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // lblName
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 31);
-            this.label1.Name = "label1";
+            this.label1.Name = "lblName";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // label2
+            // lblBirthday
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 56);
-            this.label2.Name = "label2";
+            this.label2.Name = "lblBirthday";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Medical";
             // 
-            // label3
+            // lblNotes
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 191);
-            this.label3.Name = "label3";
+            this.label3.Name = "lblNotes";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Notes";
