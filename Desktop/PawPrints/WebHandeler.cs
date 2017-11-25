@@ -144,7 +144,6 @@ namespace PawPrints
         #endregion
 
         #region User
-        //TODO get this working
         public static int updateUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
@@ -165,7 +164,6 @@ namespace PawPrints
             return Tuple.Create(totalList.users, 1);
         }
 
-        //TODO get this working
         public static Tuple<User, int> createUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
