@@ -26,5 +26,11 @@ namespace PawPrints
         {
 
         }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            AdminForm switchTo = new AdminForm();
+            switchTo.ShowDialog();
+        }
     }
 }

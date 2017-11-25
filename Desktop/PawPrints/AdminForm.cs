@@ -12,19 +12,52 @@ namespace PawPrints
 {
     public partial class AdminForm : Form
     {
-        public AdminForm(Boolean isAdmin)
+        bool isAdmin;
+        public AdminForm()
         {
             InitializeComponent();
+            isAdmin = WebHandeler.isUserAdmin(ProgramMain.currentUser);
+            btnDeleteUser.Enabled = isAdmin;
+            btnCreateUser.Enabled = isAdmin;
+
+        }
+
+        public void updateGrid()
+        {
+            dgvUserList.Rows.Clear();
+            if (isAdmin)
+            {
+                Tuple<List<User>, int> response = WebHandeler.getAllUsers(ProgramMain.currentUser.shelter_id);
+                if (response.Item2 == 1)
+                {
+
+                    List<User> users = response.Item1;
+
+                    foreach (User u in users)
+                    {
+                        dgvUserList.Rows.Add(u.id, u.email, u.username);
+                    }
+                }
+                else if (response.Item2 == -1)
+                {
+                    MessageBox.Show("Error getting users");
+                }
+                else if (response.Item2 == -2)
+                {
+                    MessageBox.Show("Could not connect to server");
+
+                }
+            }
+            else
+            {
+                User u = ProgramMain.currentUser;
+                dgvUserList.Rows.Add(u.id, u.email, u.username);
+            }
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
+            updateGrid();
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
@@ -32,17 +65,20 @@ namespace PawPrints
             if (areFieldsBlank())
             {
                 MessageBox.Show("Username, Password, and Email must not be blank");
-            }else
+            }
+            else
             {
                 User u = new User();
                 u.email = txtEmail.Text;
                 u.password = txtPassword.Text;
                 u.username = txtUsername.Text;
-                WebHandeler.createUser(u);
+                u.shelter_id = ProgramMain.currentUser.shelter_id;
+                MessageBox.Show(WebHandeler.createUser(u).Item2.ToString());
+                updateGrid();
             }
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+        private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             if (txtPassword.Text.Equals(""))
             {
@@ -50,28 +86,29 @@ namespace PawPrints
             }
             else
             {
-                if(dgvAnimalList.SelectedRows.Count == 0)
+                if (dgvUserList.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Select a user to edit password of");
+                    MessageBox.Show("Select a user to edit");
 
                 }
                 else
                 {
                     //Grid is layed out as id-email-username
-                    int id = (int)dgvAnimalList.SelectedRows[0].Cells[0].Value;
+                    int id = (int)dgvUserList.SelectedRows[0].Cells[0].Value;
                     User u = new User();
-                    u.email = (string)dgvAnimalList.SelectedRows[0].Cells[1].Value;
+                    u.email = txtEmail.Text;
                     u.password = txtPassword.Text;
-                    u.username = (string)dgvAnimalList.SelectedRows[0].Cells[2].Value;
-                    WebHandeler.updateUser(u, id);
+                    u.username = txtUsername.Text;
+                    u.id = id;
+                    WebHandeler.updateUser(u);
                 }
-      
+
             }
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            if (dgvAnimalList.SelectedRows.Count == 0)
+            if (dgvUserList.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Select a user to delete");
 
@@ -79,12 +116,16 @@ namespace PawPrints
             else
             {
 
-
                 //Grid is layed out as id-email-username
-                int id = (int)dgvAnimalList.SelectedRows[0].Cells[0].Value;
-                string username = (string)dgvAnimalList.SelectedRows[0].Cells[2].Value;
+                int id = (int)dgvUserList.SelectedRows[0].Cells[0].Value;
+                if(id == ProgramMain.currentUser.id)
+                {
+                    MessageBox.Show("Cannot delete current user");
+                    return;
+                }
+                string username = (string)dgvUserList.SelectedRows[0].Cells[2].Value;
 
-                DialogResult result = MessageBox.Show("Do you want to delete user " + username, "Confirmation", MessageBoxButtons.YesNoCancel);
+                DialogResult result = MessageBox.Show("Do you want to delete user " + username, "Confirmation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     WebHandeler.deleteUsers(id);
@@ -98,6 +139,22 @@ namespace PawPrints
         {
             return txtPassword.Text.Equals("") || txtUsername.Text.Equals("") || txtEmail.Text.Equals("");
 
+        }
+
+        private void dgvUserList_CurrentCellChanged(object sender, EventArgs e)
+        {
+         
+       
+
+        }
+
+        private void dgvUserList_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+   if(dgvUserList.SelectedRows.Count > 0)
+            {
+              txtUsername.Text = (string)dgvUserList.SelectedRows[0].Cells[2].Value;
+            txtEmail.Text = (string)dgvUserList.SelectedRows[0].Cells[1].Value;
+            }
         }
     }
 }

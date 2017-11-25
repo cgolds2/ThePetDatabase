@@ -13,7 +13,7 @@ namespace PawPrints
 {
     class WebHandeler
     {
-        public static string baseuri = @"http://68.11.238.103:812/";
+        public static string baseuri = @"http://68.11.238.103:81/";
 
 
 
@@ -21,13 +21,13 @@ namespace PawPrints
         public static Tuple<Animal, int> getAnimal(int animalID)
         {
 
-            string text = (RestService.GetCall(baseuri + "get_pets.php"));
-            if (text.Equals("-2"))
+            string result = (RestService.GetCall(baseuri + "get_pets.php"));
+            if (result.Equals("-2"))
             {
                 return Tuple.Create((Animal)null, -2);
             }
 
-            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(text);
+            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(result);
             foreach (Animal animal in allPets.pets)
             {
                 if (animal.id == animalID)
@@ -37,14 +37,15 @@ namespace PawPrints
             }
             return null;
         }
+
         public static Tuple<List<Animal>, int> getAllAnimals(int shelterID)
         {
 
-            string text = (RestService.GetCall(baseuri + "get_pets.php"));
-            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(text);
+            string result = (RestService.GetCall(baseuri + "get_pets.php"));
+            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(result);
             List<Animal> ret = new List<Animal>();
             int temp;
-            if (int.TryParse(text, out temp))
+            if (int.TryParse(result, out temp))
             {
                 return Tuple.Create((List<Animal>)null, temp);
             }
@@ -64,7 +65,7 @@ namespace PawPrints
             string jsonString = JsonConvert.SerializeObject(pet);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "add_pet.php"));
-            if (result.Equals(-1))
+            if (result.Equals("-1"))
             {
                 return -1;
             }
@@ -90,14 +91,17 @@ namespace PawPrints
         #endregion
 
         #region Picture
+        //TODO get this working
         public static Tuple<List<Image>, int> getAnimalPictures(int animalID)
         {
             throw new NotImplementedException();
         }
+        //TODO get this working
         public static int addPicture(Image picture)
         {
             throw new NotImplementedException();
         }
+        //TODO get this working
         public static int deletePicture(int pictureID)
         {
             throw new NotImplementedException();
@@ -107,13 +111,13 @@ namespace PawPrints
         #region Shelter
         public static Tuple<List<Shelter>, int> getAllShelters()
         {
-            string returnText = (RestService.GetCall(baseuri + "get_shelters.php"));
+            string result = (RestService.GetCall(baseuri + "get_shelters.php"));
             int temp;
-            if (int.TryParse(returnText, out temp))
+            if (int.TryParse(result, out temp))
             {
                 return Tuple.Create((List<Shelter>)null, temp);
             }
-            ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(returnText);
+            ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(result);
             return Tuple.Create(totalList.shelters, 1);
         }
         public static int createShelter(Shelter shelter)
@@ -131,6 +135,7 @@ namespace PawPrints
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + shelter.id));
             return int.Parse(result);
         }
+
         public static int deleteShelter(int shelterID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_shelter?id=" + shelterID));
@@ -139,18 +144,45 @@ namespace PawPrints
         #endregion
 
         #region User
-        public static int updateUser(User user, int userID)
+        //TODO get this working
+        public static int updateUser(User user)
         {
-            throw new NotImplementedException();
+            string jsonString = JsonConvert.SerializeObject(user);
+            JObject ob = JObject.Parse(jsonString);
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + user.id));
+            return int.Parse(result);
         }
-        public static Tuple<List<User>, int> getUsers(int userID)
+
+        public static Tuple<List<User>, int> getAllUsers(int shelterID)
         {
-            throw new NotImplementedException();
+            string result = (RestService.GetCall(baseuri + "get_users.php?id=" + shelterID));
+            int temp;
+            if (int.TryParse(result, out temp))
+            {
+                return Tuple.Create((List<User>)null, temp);
+            }
+            UserClass totalList = JsonConvert.DeserializeObject<UserClass>(result);
+            return Tuple.Create(totalList.users, 1);
         }
-        public static Tuple<List<User>, int> createUser(User user)
+
+        //TODO get this working
+        public static Tuple<User, int> createUser(User user)
         {
-            throw new NotImplementedException();
+            string jsonString = JsonConvert.SerializeObject(user);
+            JObject ob = JObject.Parse(jsonString);
+            string result = (RestService.PostCall(ob.ToString(), baseuri + "add_user.php"));
+            if (result.Equals("-1"))
+            {
+                return Tuple.Create((User)null, -1);
+            }
+            if (result.Equals("-2"))
+            {
+                return Tuple.Create((User)null, -2);
+            }
+            User u = JsonConvert.DeserializeObject<User>(result);
+            return Tuple.Create(u, 1);
         }
+        //TODO get this working
         public static int deleteUsers(int userID)
         {
             throw new NotImplementedException();
@@ -180,6 +212,13 @@ namespace PawPrints
             User u = JsonConvert.DeserializeObject<User>(result);
             return Tuple.Create(u, 1);
         }
+
+        public static bool isUserAdmin(User u)
+        {
+            string result = (RestService.GetCall(baseuri + "is_admin.php?uid=" +u.id +  "&sid=" + u.shelter_id));
+
+            return bool.Parse(result);
+        }
         #endregion
 
 
@@ -191,5 +230,9 @@ namespace PawPrints
     class ShelterClass
     {
         public List<Shelter> shelters { get; set; }
+    }
+    class UserClass
+    {
+        public List<User> users { get; set; }
     }
 }
