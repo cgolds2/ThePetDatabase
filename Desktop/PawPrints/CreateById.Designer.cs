@@ -62,10 +62,10 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Image";
             // 
-            // button1
+            // btnUpload
             // 
             this.button1.Location = new System.Drawing.Point(94, 115);
-            this.button1.Name = "button1";
+            this.button1.Name = "btnUpload";
             this.button1.Size = new System.Drawing.Size(83, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Choose Image";
@@ -88,10 +88,10 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnConfirm
+            // btnEdit
             // 
             this.btnConfirm.Location = new System.Drawing.Point(12, 188);
-            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Name = "btnEdit";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "Confirm";

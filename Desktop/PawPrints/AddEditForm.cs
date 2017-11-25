@@ -27,15 +27,23 @@ namespace PawPrints
                 frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
                 bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
             }
+            //TODO autofill with previous information
+        }
+
+        //redirects to picture upload
+        private void pnlProfilePic_Click(object sender, EventArgs e)
+        {
+            UploadImageForm uploadForm = new UploadImageForm(true);
+            uploadForm.Show();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             animal.name = txtName.Text;
-            int temp;
-            //TODO figure out birthday
+            animal.age = dtpBirthday.Value;
             animal.breed = txtBreed.Text;
             animal.animal_type = txtAnimalType.Text;
+            int temp;
             if (int.TryParse(txtWeight.Text, out temp))
             {
                 animal.weight = temp;
@@ -46,13 +54,13 @@ namespace PawPrints
             }
             animal.size = txtSize.Text;
             animal.notes = txtNotes.Text;
-
-            throw new NotImplementedException();
+            //TODO change picture in here?
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //TODO close
+            throw new NotImplementedException;
         }
     }
 }

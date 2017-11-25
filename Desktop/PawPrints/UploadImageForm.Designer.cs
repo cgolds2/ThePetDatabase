@@ -46,10 +46,10 @@
             this.pnlImagePreview.Size = new System.Drawing.Size(450, 334);
             this.pnlImagePreview.TabIndex = 0;
             // 
-            // btnConfirm
+            // btnEdit
             // 
             this.btnConfirm.Location = new System.Drawing.Point(144, 381);
-            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Name = "btnEdit";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 1;
             this.btnConfirm.Text = "Confirm";

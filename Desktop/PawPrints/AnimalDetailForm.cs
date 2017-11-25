@@ -26,15 +26,24 @@ namespace PawPrints
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //redirects to AddEditForm
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            AddEditForm editForm = new AddEditForm();
+            editForm.Show();
         }
 
-        private void txtNotes_TextChanged(object sender, EventArgs e)
+        //redirects to UploadByID form
+        private void btnUpload_Click(object sender, EventArgs e)
         {
-           
+            UploadImageForm uploadForm = new UploadImageForm(true);
+            uploadForm.Show();
+        }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+            //TODO close
         }
     }
 }

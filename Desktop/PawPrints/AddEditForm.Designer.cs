@@ -1,4 +1,6 @@
-﻿namespace PawPrints
+﻿using System;
+
+namespace PawPrints
 {
     partial class AddEditForm
     {
@@ -97,6 +99,7 @@
             this.btnConfirm.TabIndex = 12;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
@@ -106,6 +109,7 @@
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtBreed
             // 
@@ -177,6 +181,8 @@
             this.pnlProfilePic.Name = "pnlProfilePic";
             this.pnlProfilePic.Size = new System.Drawing.Size(152, 167);
             this.pnlProfilePic.TabIndex = 23;
+            this.pnlProfilePic.Click += new System.EventHandler(this.pnlProfilePic_Click);
+
             // 
             // dtpBirthday
             // 
@@ -214,7 +220,6 @@
             this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.Panel pnlProfilePic;
