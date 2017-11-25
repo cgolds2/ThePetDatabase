@@ -16,13 +16,7 @@ namespace PawPrints
         static void Main()
         {
             
-            Animal testAnimal = new Animal();
-            testAnimal.shelter_id = 2;
-            testAnimal.notes = "Im putting notes here";
-            testAnimal.name = "C# test";
-            testAnimal.animal_type = "myAnimalType";
 
-            int response = WebHandeler.addPet(testAnimal);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());

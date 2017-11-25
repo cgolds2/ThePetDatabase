@@ -12,7 +12,7 @@ namespace PawPrints
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+        public AdminForm(Boolean isAdmin)
         {
             InitializeComponent();
         }
