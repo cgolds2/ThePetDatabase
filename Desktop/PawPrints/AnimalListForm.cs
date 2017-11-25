@@ -19,17 +19,18 @@ namespace PawPrints
 
         private void AnimalListForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            AdminForm switchTo = new AdminForm();
+            switchTo.ShowDialog();
         }
     }
 }

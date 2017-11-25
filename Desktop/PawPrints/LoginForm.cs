@@ -22,40 +22,49 @@ namespace PawPrints
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dcrypt.it/decrypt/paste");
-            User u = WebHandeler.verifyUser(txtUsername.Text, txtPassword.Text);
+            Tuple<User,int> response = WebHandeler.verifyUser(txtUsername.Text, txtPassword.Text);
 
-            if (u == null)
+            if (response.Item2 == -1)
             {
                 MessageBox.Show("Incorrect Login");
             }
+            else if (response.Item2 == -2)
+            {
+                MessageBox.Show("Could not connect to server");
+
+            }
+            else if(response.Item2 == 1)
+            {
+                ProgramMain.currentUser = response.Item1;
+                this.Hide();
+                AnimalListForm switchTo = new AnimalListForm();
+                switchTo.ShowDialog();
+                this.Close();
+            }
             else
             {
-                ProgramMain.currentUser = u;
+                MessageBox.Show("An unidentified error has occured");
+
             }
-            //using(UploadImageForm u = new UploadImageForm(true))
+
+            //using (UploadImageForm u = new UploadImageForm(true))
             //{
             //    DialogResult res = u.ShowDialog();
-            //    if(res == DialogResult.OK)
+            //    if (res == DialogResult.OK)
             //    {
+            //        int animalID = u.animalID;
+            //        Image img = u.imageResult;
             //        Console.WriteLine("Okay");
 
             //    }
-        //}
-        //this.Hide();
-        //var transitionForm = new UploadImageForm();
-        //transitionForm.ShowDialog();
-        //this.Close();
-    
+            //}
+
+
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
+
         }
     }
 }

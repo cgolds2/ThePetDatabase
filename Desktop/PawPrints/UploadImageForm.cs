@@ -14,6 +14,7 @@ namespace PawPrints
     public partial class UploadImageForm : Form
     {
         public Image imageResult;
+        public int animalID;
         public UploadImageForm(Boolean needsID)
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace PawPrints
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            animalID = int.Parse(txtAnimalID.Text);
             DialogResult = DialogResult.OK;
         }
 
