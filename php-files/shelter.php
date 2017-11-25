@@ -55,6 +55,26 @@ class Shelter {
     }
 
 
+    function is_admin() {
+        // query to select all
+        $query = "SELECT *
+            FROM
+                " . $this->table_name . " d
+            WHERE
+                d.id = :id AND d.admin_id = :uid";
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind parameter
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":uid", $this->admin_id);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     function create() {
         // query to insert record
         $query = "INSERT INTO

@@ -24,18 +24,19 @@ $user->username = $data['username'];
 $user->shelter_id = $data['shelter_id'];
 $user->email = $data['email'];
 
-$password = $data['password'];
-$user->password_hash = password_hash($password, PASSWORD_DEFAULT);
+if ($data['password'] != null) {
+    $password = $data['password'];
+    $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
+}
 
-$result = $user->create();
-if ($result != 0) {
+if ($user->update()) {
     echo '{';
-    echo '"message": "User was successfully added to database."';
+    echo '"message": "User was successfully updated."';
     echo '}';
     return 1;
 } else {
     echo '{';
-    echo '"message": "Error adding user to database."';
+    echo '"message": "Error updating user info."';
     echo '}';
     return -1;
 }

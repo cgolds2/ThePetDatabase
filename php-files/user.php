@@ -54,6 +54,27 @@ class User {
     }
 
 
+    
+    function get_user() {
+        // query to select all
+        $query = "SELECT *
+            FROM
+                " . $this->table_name . " d
+            WHERE
+                d.username = :username";
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind parameter
+        $stmt->bindParam(":username", $this->username);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+
     function create() {
         // query to insert record
         $query = "INSERT INTO
@@ -75,7 +96,7 @@ class User {
 
         // execute query
         if ($stmt->execute()) {
-            return true;
+            return $this->conn->lastInsertId();
         } else {
             return false;
         }
@@ -87,20 +108,32 @@ class User {
         $query = "UPDATE
                 " . $this->table_name . "
             SET
-                username=:username,
-                password_hash=:password_hash,
                 shelter_id=:shelter_id,
                 email=:email
             WHERE
-                id=:id";
+                username=:username";
+
+        // if new password provided, update password_hash
+        if ($this->password_hash != null) {
+            $query = "UPDATE
+                    " . $this->table_name . "
+                SET
+                    password_hash=:password_hash,
+                    shelter_id=:shelter_id,
+                    email=:email
+                WHERE
+                    username=:username";
+        }
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // bind parameters
         $stmt->bindParam(":username", $this->username);
-        $stmt->bindParam(":password_hash", $this->password_hash);
         $stmt->bindParam(":shelter_id", $this->shelter_id);
         $stmt->bindParam(":email", $this->email);
+        if ($this->password_hash != null) {
+            $stmt->bindParam(":password_hash", $this->password_hash);
+        }
 
         // execute query
         if ($stmt->execute()) {

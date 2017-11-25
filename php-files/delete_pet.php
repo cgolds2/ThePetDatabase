@@ -17,7 +17,15 @@ $conn = $database->getConnection();
 
 $pet = new PetData($conn);
 
-$pet->id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+$id_param = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+if ($id_param == null) {
+    echo '{';
+    echo '"error": "No Pet ID specified to update."';
+    echo '}';
+    return -1;
+}
+
+$pet->id = $id_param;
 
 if ($pet->delete()) {
     echo '{';

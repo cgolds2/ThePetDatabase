@@ -5,9 +5,9 @@ header("Access-Control-Allow-Origin: *");
 class Db {
 
     private $host = "localhost";
-    private $db_name = "REPLACE WITH ACTUAL DATABASE NAME";
-    private $username = "REPLACE WITH ACTUAL USERNAME";
-    private $password = "REPLACE WITH ACTUAL PASSWORD";
+    private $db_name = "pawprints_db";
+    private $username = "pawprints";
+    private $password = "steveis#1babysitter";
     public $conn;
 
     // get the database connection
