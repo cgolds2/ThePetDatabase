@@ -80,11 +80,11 @@
             this.userName.HeaderText = "Name";
             this.userName.Name = "userName";
             // 
-            // label1
+            // lblName
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
+            this.label1.Name = "lblName";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Users";
@@ -119,20 +119,20 @@
             this.btnChangeInfo.UseVisualStyleBackColor = true;
             this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
             // 
-            // label2
+            // lblBirthday
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(413, 148);
-            this.label2.Name = "label2";
+            this.label2.Name = "lblBirthday";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Username";
             // 
-            // label3
+            // lblNotes
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(413, 197);
-            this.label3.Name = "label3";
+            this.label3.Name = "lblNotes";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Password";

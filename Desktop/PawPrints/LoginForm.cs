@@ -47,11 +47,13 @@ namespace PawPrints
 
             }
 
-            //using(UploadImageForm u = new UploadImageForm(true))
+            //using (UploadImageForm u = new UploadImageForm(true))
             //{
             //    DialogResult res = u.ShowDialog();
-            //    if(res == DialogResult.OK)
+            //    if (res == DialogResult.OK)
             //    {
+            //        int animalID = u.animalID;
+            //        Image img = u.imageResult;
             //        Console.WriteLine("Okay");
 
             //    }
