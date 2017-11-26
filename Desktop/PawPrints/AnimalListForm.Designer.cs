@@ -46,6 +46,7 @@
             this.btnAddPet.TabIndex = 5;
             this.btnAddPet.Text = "Add";
             this.btnAddPet.UseVisualStyleBackColor = true;
+            this.btnEditPet.Click += new System.EventHandler(this.btnAddPet_Click);
             // 
             // btnEditPet
             // 
@@ -55,6 +56,7 @@
             this.btnEditPet.TabIndex = 4;
             this.btnEditPet.Text = "Edit";
             this.btnEditPet.UseVisualStyleBackColor = true;
+            this.btnEditPet.Click += new System.EventHandler(this.btnEditPet_Click);
             // 
             // dgvAnimalList
             // 

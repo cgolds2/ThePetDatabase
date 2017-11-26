@@ -34,7 +34,7 @@ namespace PawPrints
         private void pnlProfilePic_Click(object sender, EventArgs e)
         {
             UploadImageForm uploadForm = new UploadImageForm(true);
-            uploadForm.Show();
+            uploadForm.ShowDialog();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
