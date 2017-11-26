@@ -38,6 +38,28 @@ namespace PawPrints
             return null;
         }
 
+        public static Tuple<List<Animal>, int> getAnimalsByShelter(int shelterID)
+        {
+
+            string result = (RestService.GetCall(baseuri + "get_pets.php?id=" + shelterID));
+            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(result);
+            List<Animal> ret = new List<Animal>();
+            int temp;
+            if (int.TryParse(result, out temp))
+            {
+                return Tuple.Create((List<Animal>)null, temp);
+            }
+
+            foreach (Animal animal in allPets.pets)
+            {
+                if (animal.shelter_id == shelterID)
+                {
+                    ret.Add(animal);
+                }
+            }
+            return Tuple.Create(ret, 1);
+        }
+
         public static Tuple<List<Animal>, int> getAllAnimals(int shelterID)
         {
 
@@ -60,6 +82,7 @@ namespace PawPrints
             return Tuple.Create(ret, 1);
 
         }
+
         public static int addPet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
@@ -75,6 +98,7 @@ namespace PawPrints
             }
             return 1;
         }
+
         public static int updatePet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
@@ -82,6 +106,7 @@ namespace PawPrints
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + pet.id));
             return int.Parse(result);
         }
+
         public static int deleteAnimal(int petID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_pet?id=" + petID));
@@ -120,6 +145,19 @@ namespace PawPrints
             ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(result);
             return Tuple.Create(totalList.shelters, 1);
         }
+
+        public static Tuple<Shelter, int> getShelterByID(int shelterID)
+        {
+            string result = (RestService.GetCall(baseuri + "get_shelters.php?id=" + shelterID));
+            int temp;
+            if (int.TryParse(result, out temp))
+            {
+                return Tuple.Create((Shelter)null, temp);
+            }
+            ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(result);
+            return Tuple.Create(totalList.shelters[0], 1);
+        }
+
         public static int createShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
@@ -128,6 +166,7 @@ namespace PawPrints
 
             return int.Parse(result);
         }
+
         public static int updateShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
@@ -186,12 +225,6 @@ namespace PawPrints
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// -1 on fail, -2 on server timeout, 1 on response
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password">Unhashed</param>
-        /// <returns>-1 on fail, -2 on server timeout, 1 on response</returns>
         public static Tuple<User, int> verifyUser(string username, string password)
         {
             JObject ob = new JObject();
@@ -213,7 +246,7 @@ namespace PawPrints
 
         public static bool isUserAdmin(User u)
         {
-            string result = (RestService.GetCall(baseuri + "is_admin.php?uid=" +u.id +  "&sid=" + u.shelter_id));
+            string result = (RestService.GetCall(baseuri + "is_admin.php?uid=" + u.id + "&sid=" + u.shelter_id));
 
             return bool.Parse(result);
         }
