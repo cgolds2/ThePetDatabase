@@ -48,10 +48,9 @@ namespace PawPrints
             addForm.ShowDialog();
         }
 
-        private void btnEditPet_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //TODO delete?
-            throw new NotImplementedException();
+            AnimalListForm_Load(sender,e);
         }
     }
 }

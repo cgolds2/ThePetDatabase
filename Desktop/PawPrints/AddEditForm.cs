@@ -27,25 +27,23 @@ namespace PawPrints
         {
             InitializeComponent();
             animal = a;
-            //autofills form with current information on animal
-            txtName.Text = animal.name;
-            dtpBirthday.Value = animal.age;
-            txtBreed.Text = animal.breed;
-            txtAnimalType.Text = animal.animal_type;
-            txtWeight.Text = animal.weight.ToString();
-            txtSize.Text = animal.size;
-            txtNotes.Text = animal.notes;
-        }
+                    }
 
         private void AddEditForm_Load(object sender, EventArgs e)
         {
             Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
+            //autofill with previous information if any
+            txtName.Text = animal.name;
+            if (animal.age != default(DateTime))
             {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
+                dtpBirthday.Value = animal.age;
+
             }
-            //TODO autofill with previous information
+            txtBreed.Text = animal.breed;
+            txtAnimalType.Text = animal.animal_type;
+            txtWeight.Text = animal.weight.ToString();
+            cboSize.Text = animal.size;
+            txtNotes.Text = animal.notes;
         }
 
         //redirects to picture upload
@@ -58,7 +56,7 @@ namespace PawPrints
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             animal.name = txtName.Text;
-            animal.age = dtpBirthday.Value;
+            animal.age = dtpBirthday.Value.Date;
             animal.breed = txtBreed.Text;
             animal.animal_type = txtAnimalType.Text;
             int temp;
@@ -70,8 +68,16 @@ namespace PawPrints
             {
                 MessageBox.Show("Weight must be a whole number");
             }
-            animal.size = txtSize.Text;
+            animal.size = cboSize.Text;
             animal.notes = txtNotes.Text;
+            if(WebHandeler.updatePet(animal) == 1)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("There was a problem updating this animal");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -21,12 +21,6 @@ namespace PawPrints
 
         private void AnimalForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
             //autofills form with current information on animal
             txtName.Text = animal.name;
             dtpBirthday.Value = animal.age;
@@ -42,6 +36,7 @@ namespace PawPrints
         {
             AddEditForm editForm = new AddEditForm(animal);
             editForm.Show();
+            this.Close();
         }
 
         //redirects to UploadByID form
@@ -49,10 +44,12 @@ namespace PawPrints
         {
             UploadImageForm uploadForm = new UploadImageForm(true);
             uploadForm.Show();
+            this.Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
+            WebHandeler.deleteAnimal(animal.id);
             this.Close();
         }
     }

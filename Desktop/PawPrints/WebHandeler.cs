@@ -75,6 +75,7 @@ namespace PawPrints
             }
             return 1;
         }
+
         public static int updatePet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
@@ -82,6 +83,7 @@ namespace PawPrints
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + pet.id));
             return int.Parse(result);
         }
+
         public static int deleteAnimal(int petID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_pet?id=" + petID));
