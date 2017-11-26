@@ -15,12 +15,11 @@ namespace PawPrints
         [STAThread]
         static void Main()
         {
-            
 
+            WebHandeler.addPicture(WebHandeler.getPicture(87).Item1,88);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
-
            
 
             //Form x = new AddEditForm();

@@ -8,6 +8,9 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO;
+using System.Net.Http.Headers;
+using System.Windows.Forms;
 
 namespace PawPrints
 {
@@ -122,9 +125,30 @@ namespace PawPrints
             throw new NotImplementedException();
         }
         //TODO get this working
-        public static int addPicture(Image picture)
+        public static int addPicture(Image picture, int animalID)
         {
+            MemoryStream ms = new MemoryStream();
+            picture.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] b = ms.ToArray();
+            string result = RestService.PostCall(System.Text.Encoding.Default.GetString(b), baseuri + "add_picture.php?id=" + animalID);
+
             throw new NotImplementedException();
+        }
+
+
+        public static Tuple<Image, int> getPicture(int petID)
+        {
+            try
+            {
+                Image result = (RestService.getImageFromUrl(RestService.GetCall(baseuri + "get_picture.php?id=87")));
+                return Tuple.Create(result, 1);
+
+            }
+            catch (Exception)
+            {
+                return Tuple.Create((Image) null, -1);
+            }
+
         }
         //TODO get this working
         public static int deletePicture(int pictureID)

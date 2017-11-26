@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Drawing;
 
 public class RestService
 {
@@ -20,12 +21,10 @@ public class RestService
             System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
 
             HttpClient client;
-            //var authData = string.Format("{0}:{1}", "test", "pswd");
-            //var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+
 
             client = new HttpClient();
             client.MaxResponseContentBufferSize = 256000;
-            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic");
 
             string html = string.Empty;
 
@@ -54,6 +53,13 @@ public class RestService
         }
     }
 
+    public static Image getImageFromUrl(string url)
+    {
+        WebClient wc = new WebClient();
+        byte[] bytes = wc.DownloadData("http://68.11.238.103:81/images/26-11-2017-1511728639.jpg");
+        System.Drawing.Image img = System.Drawing.Image.FromStream(new MemoryStream(bytes)); ;
+        return img;
+    }
 
 
 
