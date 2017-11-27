@@ -19,14 +19,20 @@ namespace PawPrints
 
         private void AnimalListForm_Load(object sender, EventArgs e)
         {
-            //getAllAnimals(int shelterID)
+            dgvAnimalList.Rows.Clear();
+            User curUser = ProgramMain.currentUser;
+            Tuple<List<Animal>, int> result = WebHandeler.getAllAnimals(curUser.shelter_id);
+            List<Animal> animalList = result.Item1;
+            foreach (Animal animal in animalList)
+            {
+                dgvAnimalList.Rows.Add(animal.id, animal.name, animal.profile_picture);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //TODO open up this specific animal page
-            //getAnimal(animalID)
-            AnimalDetailForm detailForm = new AnimalDetailForm(WebHandeler.getAnimal(dataGridView1.Rows[e.RowIndex].Cells[2].Value));
+            Tuple<Animal, int> selectedAnimal = WebHandeler.getAnimal((int)dgvAnimalList.Rows[e.RowIndex].Cells[2].Value);
+            AnimalDetailForm detailForm = new AnimalDetailForm(selectedAnimal.Item1);
             detailForm.ShowDialog();
         }
 
@@ -44,8 +50,8 @@ namespace PawPrints
 
         private void btnEditPet_Click(object sender, EventArgs e)
         {
-            AddEditForm editForm = new AddEditForm();
-            editForm.ShowDialog();
+            //TODO delete?
+            throw new NotImplementedException();
         }
     }
 }

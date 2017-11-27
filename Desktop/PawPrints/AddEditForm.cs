@@ -14,9 +14,27 @@ namespace PawPrints
     {
         private Animal animal;
 
+        //user adds animal
         public AddEditForm()
         {
             InitializeComponent();
+            animal = new Animal();
+            //TODO make sure to add to full animal list
+        }
+
+        //user edits animal
+        public AddEditForm(Animal a)
+        {
+            InitializeComponent();
+            animal = a;
+            //autofills form with current information on animal
+            txtName.Text = animal.name;
+            dtpBirthday.Value = animal.age;
+            txtBreed.Text = animal.breed;
+            txtAnimalType.Text = animal.animal_type;
+            txtWeight.Text = animal.weight.ToString();
+            txtSize.Text = animal.size;
+            txtNotes.Text = animal.notes;
         }
 
         private void AddEditForm_Load(object sender, EventArgs e)
