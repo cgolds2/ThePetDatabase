@@ -1,6 +1,19 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/Desktop/PawPrints/obj/Debug
-/Desktop/PawPrints/.vs/PawPrints/v14
+/build/
+*.suo
+*.user
+_ReSharper.*/
+*.sdf
+bin/
+obj/
+Debug/
+Release/
+*.opensdf
+*.tlog
+*.log
+TestResult.xml
+*.VisualState.xml
+Version.cs
+Version.h
+Version.cpp
+Desktop/PawPrints/bin/Debug/PawPrints.exe
+Desktop/PawPrints/bin/Debug/PawPrints.pdb
