@@ -21,7 +21,6 @@ namespace PawPrints
             InitializeComponent();
             animal = new Animal();
             newAnimal = true;
-            //TODO make sure to add to full animal list
         }
 
         //user edits animal
@@ -52,8 +51,14 @@ namespace PawPrints
         //redirects to picture upload
         private void pnlProfilePic_Click(object sender, EventArgs e)
         {
-            UploadImageForm uploadForm = new UploadImageForm(true);
-            uploadForm.ShowDialog();
+            using (UploadImageForm uploadForm = new UploadImageForm(false))
+            {
+                if (uploadForm.ShowDialog() == DialogResult.OK)
+                {
+                    string fname = uploadForm.filename;
+                    WebHandeler.addPicture(fname, animal.id);
+                }
+            }
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -69,7 +74,10 @@ namespace PawPrints
             }
             else
             {
-                MessageBox.Show("Weight must be a whole number");
+                if (temp != 0)
+                {
+                    MessageBox.Show("Weight must be a whole number");
+                }
             }
             animal.size = cboSize.Text;
             animal.notes = txtNotes.Text;

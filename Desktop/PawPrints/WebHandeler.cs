@@ -8,14 +8,11 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-<<<<<<< HEAD
 using System.Windows.Forms;
-=======
 using System.IO;
 using System.Net.Http.Headers;
 using System.Windows.Forms;
 using System.Net;
->>>>>>> master
 
 namespace PawPrints
 {
@@ -130,7 +127,7 @@ namespace PawPrints
         {
             throw new NotImplementedException();
         }
-        //TODO get this working
+
         public static string addPicture(String fileName, int animalID)
         {
             FileInfo fileInfo = new FileInfo(fileName);
@@ -145,7 +142,7 @@ namespace PawPrints
 
             }
 
-            String s = RestService.sendImageToUrl("http://68.11.238.103:81/add_picture.php?id="+ animalID, "", data);
+            String s = RestService.sendImageToUrl("http://68.11.238.103:81/add_profile_picture.php?id="+ animalID, "", data);
             return s;
         }
 
@@ -219,7 +216,7 @@ namespace PawPrints
 
         public static int deleteShelter(int shelterID)
         {
-            string result = (RestService.PostCall("", baseuri + "delete_shelter?id=" + shelterID));
+            string result = (RestService.PostCall("", baseuri + "delete_shelter.php?id=" + shelterID));
             return int.Parse(result);
         }
         #endregion
@@ -246,26 +243,27 @@ namespace PawPrints
             return Tuple.Create(totalList.users, 1);
         }
 
-        public static Tuple<User, int> createUser(User user)
+        public static int createUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "add_user.php"));
             if (result.Equals("-1"))
             {
-                return Tuple.Create((User)null, -1);
+                return -1;
             }
             if (result.Equals("-2"))
             {
-                return Tuple.Create((User)null, -2);
+                return -2;
             }
-            User u = JsonConvert.DeserializeObject<User>(result);
-            return Tuple.Create(u, 1);
+            //TODO fix this
+            return int.Parse(result);
         }
         //TODO get this working
         public static int deleteUsers(int userID)
         {
-            throw new NotImplementedException();
+            string result = (RestService.PostCall("", baseuri + "delete_user.php?id=" + userID));
+            return int.Parse(result);
         }
 
         public static Tuple<User, int> verifyUser(string username, string password)
@@ -283,6 +281,7 @@ namespace PawPrints
             {
                 return Tuple.Create((User)null, -2);
             }
+            //TODO
             User u = JsonConvert.DeserializeObject<User>(result);
             return Tuple.Create(u, 1);
         }

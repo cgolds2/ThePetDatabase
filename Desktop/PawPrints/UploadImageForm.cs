@@ -16,27 +16,18 @@ namespace PawPrints
         public Image imageResult;
         public int animalID;
         public string filename;
+        public bool needsIDVal;
 
         public UploadImageForm(Boolean needsID)
         {
             InitializeComponent();
             txtAnimalID.Visible = lblAnimalID.Visible = needsID;
-            pnlImagePreview.BackgroundImage = WebHandeler.getPicture(89).Item1;     
+            needsIDVal = needsID;
         }
 
 
         private void UploadImageForm_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            //Form frm = this;
-            //using (var bmp = new Bitmap(frm.Width, frm.Height))
-            //{
-            //    frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-            //    bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            //}
-=======
- 
->>>>>>> master
         }
 
         private void btnChooseImage_Click(object sender, EventArgs e)
@@ -68,8 +59,25 @@ namespace PawPrints
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            animalID = int.Parse(txtAnimalID.Text);
-            DialogResult = DialogResult.OK;
+
+            if (needsIDVal)
+            {
+                string aid = txtAnimalID.Text;
+                int temp;
+                if (int.TryParse(aid, out temp))
+                {
+                    animalID = int.Parse(txtAnimalID.Text);
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid animal id");
+                }
+            }
+            else
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

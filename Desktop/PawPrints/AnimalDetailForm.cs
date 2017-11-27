@@ -36,15 +36,20 @@ namespace PawPrints
         {
             AddEditForm editForm = new AddEditForm(animal);
             editForm.Show();
-            this.Close();
         }
 
         //redirects to UploadByID form
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            UploadImageForm uploadForm = new UploadImageForm(true);
-            uploadForm.Show();
-            this.Close();
+            using (UploadImageForm uploadForm = new UploadImageForm(false))
+            {
+                if(uploadForm.ShowDialog() == DialogResult.OK)
+                {
+                    string fname = uploadForm.filename;
+                    WebHandeler.addPicture(fname, animal.id);
+                }
+            }
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

@@ -21,7 +21,7 @@ namespace PawPrints
          //   WebHandeler.addPicture(@"D:\Users\Connor\Desktop\GameAndWatchHead.png", 89);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UploadImageForm(true));
+            Application.Run(new LoginForm());
            
 
             //Form x = new AddEditForm();

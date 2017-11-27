@@ -48,7 +48,7 @@ public class RestService
             {
                 return "-2";
             }
-            return ex.Message;
+            return ex.Message.Trim('\n');
 
         }
     }
@@ -75,7 +75,7 @@ public class RestService
             {
                 return null;
             }
-           return  response.Content.ReadAsStringAsync().Result;
+           return  response.Content.ReadAsStringAsync().Result.Trim();
 
         }
 
@@ -112,7 +112,7 @@ public class RestService
             {
                 return "-2";
             }
-            return ex.InnerException.Message;
+            return ex.InnerException.Message.Trim('\n');
         }
 
     }

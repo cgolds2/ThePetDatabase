@@ -74,7 +74,7 @@ namespace PawPrints
                 u.username = txtUsername.Text;
                 u.shelter_id = ProgramMain.currentUser.shelter_id;
                 MessageBox.Show("User: " + u.shelter_id + "    Current User:" + ProgramMain.currentUser.shelter_id);
-                if (WebHandeler.createUser(u).Item2 == 1){
+                if (WebHandeler.createUser(u) == 1){
                     MessageBox.Show("User creation successful");
                     updateGrid();
                 }
@@ -139,7 +139,7 @@ namespace PawPrints
                 if (result == DialogResult.Yes)
                 {
                     WebHandeler.deleteUsers(id);
-
+                    btnRefresh_Click(sender,e);
                 }
 
 
@@ -165,6 +165,11 @@ namespace PawPrints
               txtUsername.Text = (string)dgvUserList.SelectedRows[0].Cells[2].Value;
             txtEmail.Text = (string)dgvUserList.SelectedRows[0].Cells[1].Value;
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            AdminForm_Load(sender, e);
         }
     }
 }
