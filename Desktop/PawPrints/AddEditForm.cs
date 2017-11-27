@@ -14,28 +14,52 @@ namespace PawPrints
     {
         private Animal animal;
 
+        //user adds animal
         public AddEditForm()
         {
             InitializeComponent();
+            animal = new Animal();
+            //TODO make sure to add to full animal list
         }
+
+        //user edits animal
+        public AddEditForm(Animal a)
+        {
+            InitializeComponent();
+            animal = a;
+                    }
 
         private void AddEditForm_Load(object sender, EventArgs e)
         {
             Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
+            //autofill with previous information if any
+            txtName.Text = animal.name;
+            if (animal.age != default(DateTime))
             {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
+                dtpBirthday.Value = animal.age;
+
             }
+            txtBreed.Text = animal.breed;
+            txtAnimalType.Text = animal.animal_type;
+            txtWeight.Text = animal.weight.ToString();
+            cboSize.Text = animal.size;
+            txtNotes.Text = animal.notes;
+        }
+
+        //redirects to picture upload
+        private void pnlProfilePic_Click(object sender, EventArgs e)
+        {
+            UploadImageForm uploadForm = new UploadImageForm(true);
+            uploadForm.ShowDialog();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             animal.name = txtName.Text;
-            int temp;
-            //TODO figure out birthday
+            animal.age = dtpBirthday.Value.Date;
             animal.breed = txtBreed.Text;
             animal.animal_type = txtAnimalType.Text;
+            int temp;
             if (int.TryParse(txtWeight.Text, out temp))
             {
                 animal.weight = temp;
@@ -44,15 +68,21 @@ namespace PawPrints
             {
                 MessageBox.Show("Weight must be a whole number");
             }
-            animal.size = txtSize.Text;
+            animal.size = cboSize.Text;
             animal.notes = txtNotes.Text;
-
-            throw new NotImplementedException();
+            if(WebHandeler.updatePet(animal) == 1)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("There was a problem updating this animal");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.Close();
         }
     }
 }

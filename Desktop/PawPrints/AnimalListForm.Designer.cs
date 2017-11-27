@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnAddPet = new System.Windows.Forms.Button();
-            this.btnEditPet = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvAnimalList = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.petName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,15 +46,17 @@
             this.btnAddPet.TabIndex = 5;
             this.btnAddPet.Text = "Add";
             this.btnAddPet.UseVisualStyleBackColor = true;
+            this.btnAddPet.Click += new System.EventHandler(this.btnAddPet_Click);
             // 
-            // btnEditPet
+            // btnRefresh
             // 
-            this.btnEditPet.Location = new System.Drawing.Point(397, 465);
-            this.btnEditPet.Name = "btnEditPet";
-            this.btnEditPet.Size = new System.Drawing.Size(75, 23);
-            this.btnEditPet.TabIndex = 4;
-            this.btnEditPet.Text = "Edit";
-            this.btnEditPet.UseVisualStyleBackColor = true;
+            this.btnRefresh.Location = new System.Drawing.Point(397, 465);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dgvAnimalList
             // 
@@ -105,7 +107,7 @@
             this.ClientSize = new System.Drawing.Size(480, 497);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnAddPet);
-            this.Controls.Add(this.btnEditPet);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dgvAnimalList);
             this.Name = "AnimalListForm";
             this.Text = "AnimalListForm";
@@ -118,7 +120,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnAddPet;
-        private System.Windows.Forms.Button btnEditPet;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView dgvAnimalList;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn petName;
