@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Windows.Forms;
+using System.Net;
 
 namespace PawPrints
 {
@@ -125,14 +126,22 @@ namespace PawPrints
             throw new NotImplementedException();
         }
         //TODO get this working
-        public static int addPicture(Image picture, int animalID)
+        public static string addPicture(String fileName, int animalID)
         {
-            MemoryStream ms = new MemoryStream();
-            picture.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            byte[] b = ms.ToArray();
-            string result = RestService.PostCall(System.Text.Encoding.Default.GetString(b), baseuri + "add_picture.php?id=" + animalID);
+            FileInfo fileInfo = new FileInfo(fileName);
 
-            throw new NotImplementedException();
+            // The byte[] to save the data in
+            byte[] data = new byte[fileInfo.Length];
+
+            // Load a filestream and put its content into the byte[]
+            using (FileStream fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+
+            }
+
+            String s = RestService.sendImageToUrl("http://68.11.238.103:81/add_picture.php?id="+ animalID, "", data);
+            return s;
         }
 
 
@@ -140,16 +149,20 @@ namespace PawPrints
         {
             try
             {
-                Image result = (RestService.getImageFromUrl(RestService.GetCall(baseuri + "get_picture.php?id=87")));
+  
+               Image result = (RestService.getImageFromUrl(baseuri + RestService.GetCall(baseuri + "get_picture.php?id=" + petID).Trim()));
                 return Tuple.Create(result, 1);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Tuple.Create((Image) null, -1);
+                return Tuple.Create((Image)null, -1);
             }
 
         }
+
+
+
         //TODO get this working
         public static int deletePicture(int pictureID)
         {

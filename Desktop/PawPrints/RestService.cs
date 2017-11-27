@@ -56,11 +56,30 @@ public class RestService
     public static Image getImageFromUrl(string url)
     {
         WebClient wc = new WebClient();
-        byte[] bytes = wc.DownloadData("http://68.11.238.103:81/images/26-11-2017-1511728639.jpg");
+        byte[] bytes = wc.DownloadData(url);
         System.Drawing.Image img = System.Drawing.Image.FromStream(new MemoryStream(bytes)); ;
         return img;
     }
 
+    public static string sendImageToUrl(string actionUrl, string paramString, byte[] paramFileBytes)
+    {
+        HttpContent stringContent = new StringContent(paramString);
+        HttpContent bytesContent = new ByteArrayContent(paramFileBytes);
+        using (var client = new HttpClient())
+        using (var formData = new MultipartFormDataContent())
+        {
+            formData.Add(stringContent, "param1", "param1");
+            formData.Add(bytesContent, "picture", "picture");
+            var response = client.PostAsync(actionUrl, formData).Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+           return  response.Content.ReadAsStringAsync().Result;
+
+        }
+
+    }
 
 
     public static string PostCall(string body, string url)

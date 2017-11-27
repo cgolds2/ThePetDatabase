@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,10 +18,10 @@ namespace PawPrints
         static void Main()
         {
 
-            WebHandeler.addPicture(WebHandeler.getPicture(87).Item1,88);
+         //   WebHandeler.addPicture(@"D:\Users\Connor\Desktop\GameAndWatchHead.png", 89);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new UploadImageForm(true));
            
 
             //Form x = new AddEditForm();

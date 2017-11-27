@@ -18,18 +18,14 @@ namespace PawPrints
         public UploadImageForm(Boolean needsID)
         {
             InitializeComponent();
-            txtAnimalID.Visible = lblAnimalID.Visible = needsID;          
+            txtAnimalID.Visible = lblAnimalID.Visible = needsID;
+            pnlImagePreview.BackgroundImage = WebHandeler.getPicture(89).Item1;     
         }
 
 
         private void UploadImageForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
+ 
         }
 
         private void btnChooseImage_Click(object sender, EventArgs e)
