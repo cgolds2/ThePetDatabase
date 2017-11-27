@@ -151,6 +151,7 @@ namespace PawPrints
         public static int updateUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
+            MessageBox.Show("JSON STRING" + jsonString);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + user.id));
             return int.Parse(result);

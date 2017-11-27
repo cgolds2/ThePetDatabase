@@ -73,6 +73,7 @@ namespace PawPrints
                 u.password = txtPassword.Text;
                 u.username = txtUsername.Text;
                 u.shelter_id = ProgramMain.currentUser.shelter_id;
+                MessageBox.Show("User: " + u.shelter_id + "    Current User:" + ProgramMain.currentUser.shelter_id);
                 if (WebHandeler.createUser(u).Item2 == 1){
                     MessageBox.Show("User creation successful");
                     updateGrid();
@@ -101,7 +102,7 @@ namespace PawPrints
                 {
                     //Grid is layed out as id-email-username
                     int id = (int)dgvUserList.SelectedRows[0].Cells[0].Value;
-                    User u = new User();
+                    User u = ProgramMain.currentUser;
                     u.email = txtEmail.Text;
                     u.password = txtPassword.Text;
                     u.username = txtUsername.Text;
@@ -159,7 +160,7 @@ namespace PawPrints
 
         private void dgvUserList_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-   if(dgvUserList.SelectedRows.Count > 0)
+            if(dgvUserList.SelectedRows.Count > 0)
             {
               txtUsername.Text = (string)dgvUserList.SelectedRows[0].Cells[2].Value;
             txtEmail.Text = (string)dgvUserList.SelectedRows[0].Cells[1].Value;

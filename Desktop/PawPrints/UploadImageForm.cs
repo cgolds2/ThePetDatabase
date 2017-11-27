@@ -15,6 +15,8 @@ namespace PawPrints
     {
         public Image imageResult;
         public int animalID;
+        public string filename;
+
         public UploadImageForm(Boolean needsID)
         {
             InitializeComponent();
@@ -24,12 +26,12 @@ namespace PawPrints
 
         private void UploadImageForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
+            //Form frm = this;
+            //using (var bmp = new Bitmap(frm.Width, frm.Height))
+            //{
+            //    frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            //    bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
+            //}
         }
 
         private void btnChooseImage_Click(object sender, EventArgs e)
@@ -52,7 +54,7 @@ namespace PawPrints
                 DialogResult result = fd.ShowDialog();
                 if (result == DialogResult.OK && fd.CheckFileExists)
                 {
-                    string filename = fd.FileName;
+                    filename = fd.FileName;
                     imageResult = Image.FromFile(filename);
                     pnlImagePreview.BackgroundImage = imageResult;
                 }

@@ -25,7 +25,7 @@ namespace PawPrints
             List<Animal> animalList = result.Item1;
             foreach (Animal animal in animalList)
             {
-                dgvAnimalList.Rows.Add(animal.id, animal.name, animal.profile_picture);
+                dgvAnimalList.Rows.Add(animal.id, animal.name,  animal.profile_picture);
             }
         }
 
