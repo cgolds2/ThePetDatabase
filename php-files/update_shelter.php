@@ -38,18 +38,12 @@ $shelter->website = $data['website'];
 $shelter->phone_number = $data['phone_number'];
 $shelter->admin_id = $data['admin_id'];
 
-//echo $shelter->name;
-//echo $shelter->address;
 
 if ($shelter->update()) {
-    echo '{';
-    echo '"message": "Shelter was successfully added to database."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error adding shelter to database."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

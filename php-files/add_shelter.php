@@ -30,14 +30,10 @@ $shelter->admin_id = $data['admin_id'];
 //echo $shelter->address;
 
 if ($shelter->create()) {
-    echo '{';
-    echo '"message": "Shelter was successfully added to database."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error adding shelter to database."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

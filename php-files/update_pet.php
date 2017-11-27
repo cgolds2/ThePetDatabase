@@ -43,14 +43,11 @@ $pet->size = $data['size'];
 $pet->chip_id = $data['chip_id'];
 
 if ($pet->update()) {
-    echo '{';
-    echo '"message": "Pet was successfully added to database."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error adding pet to database."';
-    echo '}';
+    echo -1;
+    return -1;
 }
 
 ?>

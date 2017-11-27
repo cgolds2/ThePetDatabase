@@ -160,4 +160,49 @@ class PetData {
         }
     }
 
+
+    function add_profile_pic() {
+        // query to update record
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                profile_picture=:profile_picture
+            WHERE
+                id=:id";
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        // bind parameters
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":profile_picture", $this->profile_picture);
+
+        // execute query
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    function get_profile_pic() {
+        // query to select all
+        $query = "SELECT profile_picture
+            FROM
+                " . $this->table_name . " d
+            WHERE
+                d.id = :id";
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind parameter
+        $stmt->bindParam(":id", $this->id);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
 }

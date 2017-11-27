@@ -9,29 +9,25 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // include required files
 include_once 'db.php';
-include_once 'petdata.php';
+include_once 'picture.php';
 
 // create new database connection
 $database = new Db();
 $conn = $database->getConnection();
 
-$pet = new PetData($conn);
+$picture = new Picture($conn);
 
-$id_param = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
-if ($id_param == null) {
+$picture->id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+
+if ($picture->delete()) {
     echo '{';
-    echo '"error": "No Pet ID specified to update."';
+    echo '"message": "Shelter was successfully deleted from database."';
     echo '}';
-    return -1;
-}
-
-$pet->id = $id_param;
-
-if ($pet->delete()) {
-    echo 1;
     return 1;
 } else {
-    echo -1;
+    echo '{';
+    echo '"message": "Error deleting picture from database."';
+    echo '}';
     return -1;
 }
 
