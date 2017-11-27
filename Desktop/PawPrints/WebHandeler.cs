@@ -150,7 +150,7 @@ namespace PawPrints
             try
             {
   
-               Image result = (RestService.getImageFromUrl(baseuri + RestService.GetCall(baseuri + "get_picture.php?id=" + petID).Trim()));
+               Image result = (RestService.getImageFromUrl(baseuri + RestService.GetCall(baseuri + "get_profile_picture.php?id=" + petID).Trim()));
                 return Tuple.Create(result, 1);
 
             }
