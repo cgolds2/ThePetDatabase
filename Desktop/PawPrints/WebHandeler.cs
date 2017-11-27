@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 
 namespace PawPrints
 {
@@ -63,6 +64,7 @@ namespace PawPrints
         public static int addPet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
+            MessageBox.Show("JSON STRING" + jsonString);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "add_pet.php"));
             if (result.Equals("-1"))

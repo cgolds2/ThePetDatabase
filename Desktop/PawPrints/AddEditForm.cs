@@ -13,12 +13,14 @@ namespace PawPrints
     public partial class AddEditForm : Form
     {
         private Animal animal;
+        private bool newAnimal;
 
         //user adds animal
         public AddEditForm()
         {
             InitializeComponent();
             animal = new Animal();
+            newAnimal = true;
             //TODO make sure to add to full animal list
         }
 
@@ -27,7 +29,8 @@ namespace PawPrints
         {
             InitializeComponent();
             animal = a;
-                    }
+            newAnimal = false;
+        }
 
         private void AddEditForm_Load(object sender, EventArgs e)
         {
@@ -70,13 +73,30 @@ namespace PawPrints
             }
             animal.size = cboSize.Text;
             animal.notes = txtNotes.Text;
-            if(WebHandeler.updatePet(animal) == 1)
+            if (newAnimal)
             {
-                this.Close();
+                animal.shelter_id = ProgramMain.currentUser.shelter_id;
+                if(WebHandeler.addPet(animal) == 1)
+                {
+                    MessageBox.Show("Pet Added!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem adding the pet.");
+                }
             }
             else
             {
-                MessageBox.Show("There was a problem updating this animal");
+                if (WebHandeler.updatePet(animal) == 1)
+                {
+                    MessageBox.Show("Pet updated!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem updating this animal.");
+                }
             }
         }
 
