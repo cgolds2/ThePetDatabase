@@ -8,6 +8,10 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO;
+using System.Net.Http.Headers;
+using System.Windows.Forms;
+using System.Net;
 
 namespace PawPrints
 {
@@ -38,6 +42,28 @@ namespace PawPrints
             return null;
         }
 
+        public static Tuple<List<Animal>, int> getAnimalsByShelter(int shelterID)
+        {
+
+            string result = (RestService.GetCall(baseuri + "get_pets.php?id=" + shelterID));
+            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(result);
+            List<Animal> ret = new List<Animal>();
+            int temp;
+            if (int.TryParse(result, out temp))
+            {
+                return Tuple.Create((List<Animal>)null, temp);
+            }
+
+            foreach (Animal animal in allPets.pets)
+            {
+                if (animal.shelter_id == shelterID)
+                {
+                    ret.Add(animal);
+                }
+            }
+            return Tuple.Create(ret, 1);
+        }
+
         public static Tuple<List<Animal>, int> getAllAnimals(int shelterID)
         {
 
@@ -60,6 +86,7 @@ namespace PawPrints
             return Tuple.Create(ret, 1);
 
         }
+
         public static int addPet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
@@ -99,10 +126,43 @@ namespace PawPrints
             throw new NotImplementedException();
         }
         //TODO get this working
-        public static int addPicture(Image picture)
+        public static string addPicture(String fileName, int animalID)
         {
-            throw new NotImplementedException();
+            FileInfo fileInfo = new FileInfo(fileName);
+
+            // The byte[] to save the data in
+            byte[] data = new byte[fileInfo.Length];
+
+            // Load a filestream and put its content into the byte[]
+            using (FileStream fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+
+            }
+
+            String s = RestService.sendImageToUrl("http://68.11.238.103:81/add_picture.php?id="+ animalID, "", data);
+            return s;
         }
+
+
+        public static Tuple<Image, int> getPicture(int petID)
+        {
+            try
+            {
+  
+               Image result = (RestService.getImageFromUrl(baseuri + RestService.GetCall(baseuri + "get_profile_picture.php?id=" + petID).Trim()));
+                return Tuple.Create(result, 1);
+
+            }
+            catch (Exception ex)
+            {
+                return Tuple.Create((Image)null, -1);
+            }
+
+        }
+
+
+
         //TODO get this working
         public static int deletePicture(int pictureID)
         {
@@ -122,6 +182,19 @@ namespace PawPrints
             ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(result);
             return Tuple.Create(totalList.shelters, 1);
         }
+
+        public static Tuple<Shelter, int> getShelterByID(int shelterID)
+        {
+            string result = (RestService.GetCall(baseuri + "get_shelters.php?id=" + shelterID));
+            int temp;
+            if (int.TryParse(result, out temp))
+            {
+                return Tuple.Create((Shelter)null, temp);
+            }
+            ShelterClass totalList = JsonConvert.DeserializeObject<ShelterClass>(result);
+            return Tuple.Create(totalList.shelters[0], 1);
+        }
+
         public static int createShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
@@ -130,6 +203,7 @@ namespace PawPrints
 
             return int.Parse(result);
         }
+
         public static int updateShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
@@ -188,12 +262,6 @@ namespace PawPrints
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// -1 on fail, -2 on server timeout, 1 on response
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password">Unhashed</param>
-        /// <returns>-1 on fail, -2 on server timeout, 1 on response</returns>
         public static Tuple<User, int> verifyUser(string username, string password)
         {
             JObject ob = new JObject();
@@ -215,7 +283,7 @@ namespace PawPrints
 
         public static bool isUserAdmin(User u)
         {
-            string result = (RestService.GetCall(baseuri + "is_admin.php?uid=" +u.id +  "&sid=" + u.shelter_id));
+            string result = (RestService.GetCall(baseuri + "is_admin.php?uid=" + u.id + "&sid=" + u.shelter_id));
 
             return bool.Parse(result);
         }
