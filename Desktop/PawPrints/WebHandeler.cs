@@ -248,6 +248,7 @@ namespace PawPrints
             string jsonString = JsonConvert.SerializeObject(user);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "add_user.php"));
+            result = result.Trim();
             if (result.Equals("-1"))
             {
                 return -1;
@@ -259,11 +260,19 @@ namespace PawPrints
             //TODO fix this
             return int.Parse(result);
         }
-        //TODO get this working
+
         public static int deleteUsers(int userID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_user.php?id=" + userID));
-            return int.Parse(result);
+            if (result.Equals("1"))
+            {
+                return 1;
+            }
+            if (result.Equals("-2"))
+            {
+                return -2;
+            }
+            return -1;
         }
 
         public static Tuple<User, int> verifyUser(string username, string password)
