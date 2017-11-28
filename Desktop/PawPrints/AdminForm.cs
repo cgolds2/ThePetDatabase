@@ -73,8 +73,15 @@ namespace PawPrints
                 u.password = txtPassword.Text;
                 u.username = txtUsername.Text;
                 u.shelter_id = ProgramMain.currentUser.shelter_id;
-                MessageBox.Show(WebHandeler.createUser(u).Item2.ToString());
-                updateGrid();
+                MessageBox.Show("User: " + u.shelter_id + "    Current User:" + ProgramMain.currentUser.shelter_id);
+                if (WebHandeler.createUser(u) == 1){
+                    MessageBox.Show("User creation successful");
+                    updateGrid();
+                }
+                else
+                {
+                    MessageBox.Show("User creation failed.");
+                }
             }
         }
 
@@ -95,12 +102,15 @@ namespace PawPrints
                 {
                     //Grid is layed out as id-email-username
                     int id = (int)dgvUserList.SelectedRows[0].Cells[0].Value;
-                    User u = new User();
+                    User u = ProgramMain.currentUser;
                     u.email = txtEmail.Text;
                     u.password = txtPassword.Text;
                     u.username = txtUsername.Text;
                     u.id = id;
-                    WebHandeler.updateUser(u);
+                    if (WebHandeler.updateUser(u) == 1)
+                    {
+                        MessageBox.Show("Update successful!");
+                    }
                 }
 
             }
@@ -129,7 +139,7 @@ namespace PawPrints
                 if (result == DialogResult.Yes)
                 {
                     WebHandeler.deleteUsers(id);
-
+                    btnRefresh_Click(sender,e);
                 }
 
 
@@ -150,11 +160,16 @@ namespace PawPrints
 
         private void dgvUserList_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-   if(dgvUserList.SelectedRows.Count > 0)
+            if(dgvUserList.SelectedRows.Count > 0)
             {
               txtUsername.Text = (string)dgvUserList.SelectedRows[0].Cells[2].Value;
             txtEmail.Text = (string)dgvUserList.SelectedRows[0].Cells[1].Value;
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            AdminForm_Load(sender, e);
         }
     }
 }

@@ -25,13 +25,20 @@ namespace PawPrints
             List<Animal> animalList = result.Item1;
             foreach (Animal animal in animalList)
             {
-                dgvAnimalList.Rows.Add(animal.id, animal.name, animal.profile_picture);
+                if(WebHandeler.getPicture(animal.id).Item2 != -1)
+                {
+                    dgvAnimalList.Rows.Add(animal.id, animal.name, WebHandeler.getPicture(animal.id).Item1);
+                }
+                else
+                {
+                    MessageBox.Show("Error showing picture");
+                }
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Tuple<Animal, int> selectedAnimal = WebHandeler.getAnimal((int)dgvAnimalList.Rows[e.RowIndex].Cells[2].Value);
+            Tuple<Animal, int> selectedAnimal = WebHandeler.getAnimal((int)dgvAnimalList.Rows[e.RowIndex].Cells[0].Value);
             AnimalDetailForm detailForm = new AnimalDetailForm(selectedAnimal.Item1);
             detailForm.ShowDialog();
         }
