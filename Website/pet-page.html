@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,155 +10,248 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+
+
 <body>
   <div class='header'>
-	<a href='pawprints.html' id='header'>Paw Prints</a>
+    <a href='pawprints.html' id='header'>Paw Prints</a>
   </div>
-  <nav class="bar">
-	<div>
-	  <a href="pawprints.html" class="button bar-item">HOME</a>
-	  <a href="pet-page.html" class="button bar-item">PETS</a>
-	  <a href="contact.html" class="button bar-item">ABOUT US</a>
-	</div>
-	<input type='text' id='search' name='search' placeholder='Search'/>
-  </nav>
-  <div class='pet-page'>
-  	<h3 class='pets-header'>Pet Profiles</h3>
-    <div class='pet-page-container'>
-      <div class='pet-page-img-name-container'>
-		  <button id='myBtn' style="text-decoration:none" target='_self'>
-	      <img class='pet-img' src='dog1.jpg' alt='dog1'></img>
-	      <p id='pet-page-name'>Oliver</p>
-  		   <p class='pet-modal-text'>Age: 1 Year</p>
-		   <p class='pet-modal-text'>Breed: Golden Retriever </p>
-		   <p class='pet-modal-text'>Location: Baton Rouge, LA </p>
-		   <p class='pet-modal-text'>Shelter: True Friends</p>
-	    </button>
-	  </div>
-	  <div id="myModal" class="modal">
-		<!-- Pet Modal -->
-		<div class="modal-content">
-		  <span class="close">&times;</span>
-		  <img class='pet-modal-img' src='dog1.jpg' alt='dog1'></img>
-		  <h2 class='pet-modal-header'>Oliver</h2>
-		  <div class='pet-text-container'>
-		    <p class='pet-modal-text'>Age: 1 Year</p>
-		    <p class='pet-modal-text'>Breed: Golden Retriever </p>
-		    <p class='pet-modal-text'>Location: Baton Rouge, LA </p>
-		    <p class='pet-modal-text'>Shelter: True Friends</p>
-		    <p class='pet-modal-text'>Description: Oliver was found as a stray and he is a 1 year old golden retriever. He is well socialized with other dogs and loves to play. He also seeks out her foster mom for cuddles. Adoptions by appointment only. Adoption fee will cover her vet exam, spay surgery, distemper, rabies vaccine, microchip, dewormer, flea meds, free vet exam coupon and 30 days pet insurance.</p>
+  <div class='pawprints-container'>
+	  <nav class="bar">
+	    <div>
+		  <a href="pawprints.html" class="button bar-item">HOME</a>
+		  <a href="pet-page.html" class="button bar-item">PETS</a>
+		  <a href="contact.html" class="button bar-item">ABOUT US</a>
+	    </div>
+	    <input type='text' id='search' name='search' placeholder='Search'/>
+	  </nav>
+
+		<div class='pet-page-container'>
+		  <div>
+		  	<ul id='shelters'/>
+		  </div>
+		  <h3 class='pets-header'>Pet Profiles</h3>
+		     <div>
+		     	<ul id='pets-grid'/>
+			 </div>
+			  <!-- <ul id='pictures'></ul> -->
+		</div>
+
+
+		<div class='social-footer'>
+		  <div class='social-pawprint-logo'>
+		    <h3 id='pawprint-logo'>PawPrints</h3>
+		    <p id='pawprint-mission'>Bacon ipsum dolor amet tail pork chop cow, turducken jowl chicken tongue t-bone. Landjaeger alcatra leberkas, porchetta ball tip jerky doner drumstick rump pork loin boudin andouille. Brisket meatloaf ribeye boudin.</p>
+		  </div>
+		  <div class='social-column'>
+		    <h4 id='social-header'>Navigation</h4>
+		    <div class='social-nav-column'>
+			  <a href="pawprints.html" id="social-nav-text"><p id='footer-nav-link'>HOME</p></a>
+			  <a href="pet-page.html" id="social-nav-text">PETS</a>
+			  <a href="contact.html" id="social-nav-text">ABOUT US</a>
+		    </div>
+		  </div>
+		  <div class='social-column'>
+		  	<h4 id='social-header'>Social Media</h4>
+		  	<img id='social-icon' src='facebook-icon.png' alt='facebook'></img>
+		  	<img id='social-icon' src='twitter-icon.png' alt='twitter'></img>
+		  </div>
+		  <div class='social-column'>
+		  	<h4 id='social-header'>Contact</h4>
+		  	<div class='social-text-column'>
+			  <p id='social-text'>support@pawprints.com</p>
+			  <p id='social-text'>Baton Rouge, LA 70802</p>
+			</div>
 		  </div>
 		</div>
-	  </div>
-
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='cat1.jpg' alt='cat1'></img>
-	      <p id='pet-page-name'>Olivia</p>
-	    </a>
-	  </div>
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='cat3.jpg' alt='cat3'></img>
-	      <p id='pet-page-name'>Vivian</p>
-	    </a>
-	  </div>
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='dog2.jpg' alt='dog2'></img>
-	      <p id='pet-page-name'>Bruno</p>
-	    </a>
-	  </div>
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='dog3.jpg' alt='dog3'></img>
-	      <p id='pet-page-name'>Fonzie</p>
-    	</a>
-	  </div>
-      <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='cat1.jpg' alt='cat1'></img>
-	      <p id='pet-page-name'>Olivia</p>
-	    </a>
-	  </div>
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='cat3.jpg' alt='cat3'></img>
-	      <p id='pet-page-name'>Vivian</p>
-	    </a>
-	  </div>
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='dog2.jpg' alt='dog2'></img>
-	      <p id='pet-page-name'>Bruno</p>
-	    </a>
-	  </div>
-	  <div class='pet-page-img-name-container'>
-	    <a style="text-decoration:none" href='' target='_self'>
-	      <img class='pet-img' src='dog3.jpg' alt='dog3'></img>
-	      <p id='pet-page-name'>Fonzie</p>
-	    </a>
-	  </div>
-	</div>
-  </div>
-	<div class='social-footer'>
-	  <div class='social-pawprint-logo'>
-	    <h3 id='pawprint-logo'>PawPrints</h3>
-	    <p id='pawprint-mission'>Bacon ipsum dolor amet tail pork chop cow, turducken jowl chicken tongue t-bone. Landjaeger alcatra leberkas, porchetta ball tip jerky doner drumstick rump pork loin boudin andouille. Brisket meatloaf ribeye boudin.</p>
-	  </div>
-	  <div class='social-column'>
-	    <h4 id='social-header'>Navigation</h4>
-	    <div class='social-nav-column'>
-		  <a href="pawprints.html" id="social-nav-text">HOME</a>
-		  <a href="pet-page.html" id="social-nav-text">PETS</a>
-		  <a href="contact.html" id="social-nav-text">ABOUT US</a>
-	    </div>
-	  </div>
-	  <div class='social-column'>
-	  	<h4 id='social-header'>Social Media</h4>
-	  	<img id='social-icon' src='facebook-icon.png' alt='facebook'></img>
-	  	<img id='social-icon' src='twitter-icon.png' alt='twitter'></img>
-	  </div>
-	  <div class='social-column'>
-	  	<h4 id='social-header'>Contact</h4>
-	  	<div class='social-text-column'>
-		  <p id='social-text'>support@pawprints.com</p>
-		  <p id='social-text'>Baton Rouge, LA 70802</p>
+		<div class='copyright-footer'>
+		  <p>© 2017 PawPrints.</p>
 		</div>
-	  </div>
-	</div>
-	<div class='copyright-footer'>
-	  <p>© 2017 PawPrints.</p>
-	</div>
   </div>
+
 
 <script> //Modal Script
-	// Get the modal
-	var modal = document.getElementById('myModal');
-
-	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
-
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-
-	// When the user clicks the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
-	}
-
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	    modal.style.display = "none";
-	}
-
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 	    if (event.target == modal) {
 	        modal.style.display = "none";
+	        modal.setAttribute("style", "display: none;");
 	    }
 	}
+
+function createNode(element) {
+  return document.createElement(element);
+}
+
+function append(parent, el) {
+return parent.appendChild(el);
+}
+
+function getPetData() {
+  const ul = document.getElementById('pets-grid');
+  const shelterName = getShelter();
+  console.log(shelterName);
+  const url = 'http://68.11.238.103:81/get_pets.php/?id=1';
+  fetch(url)
+	.then((res) => res.json())
+		.then(function(data) {
+			console.log(data);
+		    let pets = data.pets;
+		    return pets.map(function(pet) {
+		      //getPetImg(pet.id);
+		      let li = createNode('li'),
+		      	  span = createNode('span'),
+		      	  img = createNode('img'),
+		      	  div = createNode('div');
+		      	  petPageDiv = createNode('button');
+		      	  modalDiv = createNode('div');
+		      	  modalCont = createNode('div');
+		      	  modalSpan = createNode('span');
+		      	  petNotes = createNode('p');
+		      	  petSize = createNode('p');
+		      	  petWeight = createNode('p');
+		      	  petType = createNode('p');
+		      	  petBreed = createNode('p');
+		      	  petAge = createNode('p');
+		      	  petModalImg = createNode('img');
+		      	  petModalName = createNode('h2');
+		      	  petModalDiv = createNode('div');
+		      	  petSummaryAge = createNode('p');
+		      	  petSummaryBreed = createNode('p');
+		      	  petSummaryType = createNode('p');
+
+		      img.id = 'profile-pet';
+		      li.id = 'list-button';
+		      petSummaryAge.className = 'pet-modal-text';
+		      petSummaryBreed.className = 'pet-modal-text';
+		      petSummaryType.className = 'pet-modal-text';
+		      petNotes.className = 'pet-modal-text';
+		      petSize.className = 'pet-modal-text';
+		      petWeight.className = 'pet-modal-text';
+		      petType.className = 'pet-modal-text';
+		      petBreed.className = 'pet-modal-text';
+  		      petAge.className = 'pet-modal-text';
+		      petModalImg.className = 'pet-modal-img';
+		      petModalName.className = 'pet-modal-header';
+
+		      petModalDiv.id = 'pet-text-container';
+		      div.className = 'pet-img-name-container';
+		      modalDiv.id = pet.id;
+		      petPageDiv.id = 'myBtn';
+		      petPageDiv.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='block';");
+		      modalSpan.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='none';")
+  		      modalSpan.className = 'close';
+		      modalDiv.className = 'modal';
+		      modalCont.className = 'modal-content';
+
+		      petSummaryType.innerHTML = 'Type: ' + pet.animal_type;
+		      petSummaryBreed.innerHTML = 'Breed: ' + pet.breed;
+		      petSummaryAge.innerHTML = 'Age: ' + (new Date().getFullYear() - pet.age.substring(0,4)) + " yr " + 
+		      					  (new Date().getMonth() - pet.age.substring(6,7) + " mo.");
+		      petModalImg.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+  		      modalSpan.innerHTML = '&times';
+		      petModalName.innerHTML = pet.name;
+		      petNotes.innerHTML = 'Description: ' + pet.notes;
+		      petSize.innerHTML = 'Size: ' + pet.size;
+		      petWeight.innerHTML = 'Weight: ' + pet.weight+"lbs";
+		      petType.innerHTML = 'Type: ' + pet.animal_type;
+		      petBreed.innerHTML = 'Breed: ' + pet.breed;
+		      petAge.innerHTML = 'Age: ' + (new Date().getFullYear() - pet.age.substring(0,4)) + " yr " + 
+		      					  (new Date().getMonth() - pet.age.substring(6,7) + " mo.");
+		      
+		      span.innerHTML = pet.name;
+		      img.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+
+		      append(petModalDiv, petAge);
+		      append(petModalDiv, petType);
+		      append(petModalDiv, petBreed);
+		      append(petModalDiv, petSize);
+		      append(petModalDiv, petWeight);
+		      append(petModalDiv, petNotes);
+  		      append(modalCont, modalSpan);
+		      append(modalCont, petModalImg);
+		      append(modalCont, petModalName);
+		      append(modalCont, petModalDiv);
+		      append(modalDiv, modalCont);
+		      append(petPageDiv, img);
+		      append(petPageDiv, span);
+		      append(petPageDiv, petSummaryType);
+		      append(petPageDiv, petSummaryBreed);
+		      append(petPageDiv, petSummaryAge);
+
+		      append(div, petPageDiv);
+  		      append(div, modalDiv);
+		      append(li, div);
+		      append(ul, li);
+		    })
+		})
+.catch(function(error) {
+    console.log(error);
+  })
+}
+
+
+
+function getShelter() {
+	const ul = document.getElementById('shelters');
+	const petModalDiv = document.getElementById('pet-text-container');
+	const url = 'http://68.11.238.103:81/get_shelters.php?id=1';
+	fetch(url)
+	.then((res) => res.json())
+		.then(function(data) {
+			console.log(data);
+			let shelters = data.shelters;
+			return shelters.map(function(shelter) {
+				let li = createNode('li'),
+					shelterDiv = createNode('div');
+					shelterName = createNode('h1');
+					shelterAddress = createNode('h2');
+					shelterPhone = createNode('p');
+
+				shelterName.id = 'shelter-name';
+				shelterAddress.id = 'shelter-address';
+				shelterPhone.id = 'shelter-phone';
+				shelterDiv.id = 'shelter-container';
+				shelterName.innerHTML = shelter.name;
+				shelterAddress.innerHTML = shelter.address;
+				shelterPhone.innerHTML = shelter.phone_number;
+				append(shelterDiv, shelterName);
+				append(shelterDiv, shelterAddress);
+				append(shelterDiv, shelterPhone);
+				append(li, shelterDiv);
+				append(ul, li);
+			})
+		})
+		.catch(function(error) {
+    		console.log(error);
+  		})
+}
+
+// function getPetImg(id) {
+// 	const ul = document.getElementById('pictures');
+// 	const url = 'http://68.11.238.103:81/get_picture.php?id=' + id;
+// 	fetch(url)
+// 	.then((res) => res.json())
+// 		.then(function(data) {
+// 			console.log(data);
+// 			let pictures = data.pictures;
+// 			return pictures.map(function(picture) {
+// 				let img = createNode('img'),
+// 					li = createNode('li');
+// 				let profileImg = 'http://68.11.238.103:81/'+picture.data;
+// 				img.src= profileImg;
+// 				append(li, img);
+// 				append(ul, li);
+// 			})
+// 		})
+// 		.catch(function(error) {
+//     		console.log('picture not found');
+//   		})
+// }
+
+getPetData();
 </script>
+
 </body>
 </html>
 
