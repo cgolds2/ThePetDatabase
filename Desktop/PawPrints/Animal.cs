@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PawPrints
 {
-    class Animal
+    public class Animal
     {
         public int id;
         public DateTime age;

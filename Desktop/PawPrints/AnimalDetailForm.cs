@@ -12,29 +12,50 @@ namespace PawPrints
 {
     public partial class AnimalDetailForm : Form
     {
-        public AnimalDetailForm()
+        Animal animal;
+        public AnimalDetailForm(Animal ani)
         {
             InitializeComponent();
+            animal = ani;
         }
+
         private void AnimalForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
+            //autofills form with current information on animal
+            txtName.Text = animal.name;
+            dtpBirthday.Value = animal.age;
+            txtBreed.Text = animal.breed;
+            txtAnimalType.Text = animal.animal_type;
+            txtWeight.Text = animal.weight.ToString();            
+            txtSize.Text = animal.size;
+            txtNotes.Text = animal.notes;
+        }
+
+        //redirects to AddEditForm
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            AddEditForm editForm = new AddEditForm(animal);
+            editForm.Show();
+        }
+
+        //redirects to UploadByID form
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            using (UploadImageForm uploadForm = new UploadImageForm(false))
             {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
+                if(uploadForm.ShowDialog() == DialogResult.OK)
+                {
+                    string fname = uploadForm.filename;
+                    WebHandeler.addPicture(fname, animal.id);
+                }
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
-        private void txtNotes_TextChanged(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-           
-
+            WebHandeler.deleteAnimal(animal.id);
+            this.Close();
         }
     }
 }

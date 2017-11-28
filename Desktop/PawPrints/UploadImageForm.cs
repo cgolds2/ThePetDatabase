@@ -15,21 +15,19 @@ namespace PawPrints
     {
         public Image imageResult;
         public int animalID;
+        public string filename;
+        public bool needsIDVal;
+
         public UploadImageForm(Boolean needsID)
         {
             InitializeComponent();
-            txtAnimalID.Visible = lblAnimalID.Visible = needsID;          
+            txtAnimalID.Visible = lblAnimalID.Visible = needsID;
+            needsIDVal = needsID;
         }
 
 
         private void UploadImageForm_Load(object sender, EventArgs e)
         {
-            Form frm = this;
-            using (var bmp = new Bitmap(frm.Width, frm.Height))
-            {
-                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                bmp.Save(@"D:\Users\Connor\Desktop\Forms Screenshots\" + frm.Name + @".png");
-            }
         }
 
         private void btnChooseImage_Click(object sender, EventArgs e)
@@ -52,7 +50,7 @@ namespace PawPrints
                 DialogResult result = fd.ShowDialog();
                 if (result == DialogResult.OK && fd.CheckFileExists)
                 {
-                    string filename = fd.FileName;
+                    filename = fd.FileName;
                     imageResult = Image.FromFile(filename);
                     pnlImagePreview.BackgroundImage = imageResult;
                 }
@@ -61,14 +59,30 @@ namespace PawPrints
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            animalID = int.Parse(txtAnimalID.Text);
-            DialogResult = DialogResult.OK;
+
+            if (needsIDVal)
+            {
+                string aid = txtAnimalID.Text;
+                int temp;
+                if (int.TryParse(aid, out temp))
+                {
+                    animalID = int.Parse(txtAnimalID.Text);
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid animal id");
+                }
+            }
+            else
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-
         }
     }
 }

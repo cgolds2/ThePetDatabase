@@ -1,4 +1,6 @@
-﻿namespace PawPrints
+﻿using System;
+
+namespace PawPrints
 {
     partial class AddEditForm
     {
@@ -42,9 +44,9 @@
             this.lblAnimalType = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
-            this.txtSize = new System.Windows.Forms.TextBox();
             this.pnlProfilePic = new System.Windows.Forms.Panel();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
+            this.cboSize = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtNotes
@@ -97,6 +99,7 @@
             this.btnConfirm.TabIndex = 12;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
@@ -106,6 +109,7 @@
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtBreed
             // 
@@ -164,19 +168,13 @@
             this.lblSize.TabIndex = 21;
             this.lblSize.Text = "Size";
             // 
-            // txtSize
-            // 
-            this.txtSize.Location = new System.Drawing.Point(245, 114);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(134, 20);
-            this.txtSize.TabIndex = 22;
-            // 
             // pnlProfilePic
             // 
             this.pnlProfilePic.Location = new System.Drawing.Point(15, 12);
             this.pnlProfilePic.Name = "pnlProfilePic";
             this.pnlProfilePic.Size = new System.Drawing.Size(152, 167);
             this.pnlProfilePic.TabIndex = 23;
+            this.pnlProfilePic.Click += new System.EventHandler(this.pnlProfilePic_Click);
             // 
             // dtpBirthday
             // 
@@ -185,14 +183,26 @@
             this.dtpBirthday.Size = new System.Drawing.Size(202, 20);
             this.dtpBirthday.TabIndex = 24;
             // 
+            // cboSize
+            // 
+            this.cboSize.FormattingEnabled = true;
+            this.cboSize.Location = new System.Drawing.Point(245, 114);
+            this.cboSize.Name = "cboSize";
+            this.cboSize.Size = new System.Drawing.Size(134, 21);
+            this.cboSize.TabIndex = 25;
+            this.cboSize.Items.Insert(0, "Small");
+            this.cboSize.Items.Insert(0, "Medium");
+            this.cboSize.Items.Insert(0, "Large");
+
+            // 
             // AddEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 343);
+            this.Controls.Add(this.cboSize);
             this.Controls.Add(this.dtpBirthday);
             this.Controls.Add(this.pnlProfilePic);
-            this.Controls.Add(this.txtSize);
             this.Controls.Add(this.lblSize);
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblAnimalType);
@@ -214,7 +224,6 @@
             this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.Panel pnlProfilePic;
@@ -235,12 +244,12 @@
         private System.Windows.Forms.Label lblWeight;
 
         private System.Windows.Forms.Label lblSize;
-        private System.Windows.Forms.TextBox txtSize;
 
         private System.Windows.Forms.Label lblBirthday;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
 
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox cboSize;
     }
 }
