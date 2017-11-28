@@ -86,7 +86,12 @@
 
 
 <script> //Modal Script
-
+	window.onclick = function(event) {
+	    if (event.target.className == 'modal') {
+	        event.target.style.display = "none";
+	        event.target.setAttribute("style", "display: none;");
+	    }
+	}
 function createNode(element) {
   return document.createElement(element);
 }
