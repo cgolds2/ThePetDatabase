@@ -21,6 +21,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.7);
 }
   html {
     margin:0px;
@@ -60,12 +61,13 @@ html {
   }
   .recent-pets-header{
     text-align: left;
-    font-size: 1.5em;
+    font-size: 2.0em;
     font-family: 'SimSun', sans-serif;
     color: black;
     padding: 10px;
     margin-right: auto;
     margin-top: 50px;
+    font-weight: bold;
   }
   #search{
     color: black;
@@ -429,12 +431,13 @@ header {}
 }
 .pets-header {
   text-align: left;
-  font-size: 1.5em;
+  font-size: 2.0em;
   font-family: 'SimSun', sans-serif;
   color: black;
   padding: 10px;
   margin-right: auto;
   margin-top: 50px;
+  font-weight: bold;
 }
 
  .pet-page-img-name-container {
@@ -511,5 +514,36 @@ header {}
   margin-bottom: 100px;
   
 }
+
+.parallax {
+    /* The image used */
+    background-image: url("clipart2.png");
+
+    /* Set a specific height */
+    min-height: 1110px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.8);
+}
+
+.parallax-petspage {
+    /* The image used */
+    background-image: url("clipart2.png");
+
+    /* Set a specific height */
+    min-height: 200px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.8);
+}
+
 
 </style>
