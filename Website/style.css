@@ -1,0 +1,551 @@
+@media (max-width: 768px) {
+  #header { font-size: 3em !important; }
+}
+
+<style>
+html {
+    margin:0px;
+    padding:0px;
+    width:100%;
+  }
+
+.parallax { 
+    /* The image used */
+    background-image: url("clipart2.png");
+
+    /* Set a specific height */
+    height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.7);
+}
+  html {
+    margin:0px;
+    padding:0px;
+    width:100%;
+  }
+  .pawprints-container {
+    width: 100%;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9bd5bf;
+    width: 100%;
+  }
+  #header{ 
+    color: black;
+    font-size: 5em;
+    text-align: center;
+    font-family: 'SimSun';
+    outline: none;
+    text-decoration: none;
+  }
+  #box-headers{
+    font-size: 1.5em;
+    font-family: 'SimSun', sans-serif;
+    background-color: #98a075;
+    padding: 10px 10px;
+    color: black;
+  }
+  .recent-pets-header{
+    text-align: left;
+    font-size: 2.0em;
+    font-family: 'SimSun', sans-serif;
+    color: black;
+    padding: 10px;
+    margin-right: auto;
+    margin-top: 50px;
+    font-weight: bold;
+  }
+  #search{
+    color: black;
+    padding:4px 0;
+    padding-left: 20px;
+    padding-right: 50px;
+    font-family: 'SimSun', sans-serif;
+    font-size: 1em;
+    margin-right: 25px;
+    background-image: url('searchIcon.png');
+    background-repeat: no-repeat;
+    background-position: 0px 5px;
+    width: 300px;
+  }
+  .bar {
+    background-color: #35373a;
+    padding:4px 16px;
+    outline:none;
+    display:flex;
+    align-items: center;
+    justify-content: space-between
+  }
+  .bar {
+    width: 100%;
+  }
+  .bar-item{
+    color: white;
+    padding:8px 16px;
+    font-family: 'SimSun', sans-serif;
+    font-size: 1em;
+    outline:none;
+    text-decoration: none;
+    border-right: 2px solid black;
+  }
+  .bar-item:hover{
+    color: black;
+    background-color: #f9f8e3;
+    font-weight: bold;
+  }
+
+  .button {
+  	color: #f9f9f9;
+    cursor: pointer;
+    background-color: black
+    box-shadow: inset 0px 0px 3px rgba(255,255,255,.5);
+  }
+  .shelter-footer { 
+    border: 1px solid #d7d7d7;
+    background-color: white;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 0 8px 12px -6px #777;
+ }
+ .shelter-img-links {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    max-width: auto;
+ }
+ .shelter-img {
+  width: 150px;
+  height: auto;
+  margin: 0 10px;
+  padding: 10px 0;
+ }
+ .recent-pet-container {
+  height: 300px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+ .pet-img-name-container {
+   border: 1px solid black;
+   height: auto;
+   margin: 0 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 0 6px 5px -6px #777;
+   background-color: white;
+ }
+ .pet-img {
+   width: 200px;
+   height: 150px;
+   text-align: center;
+ }
+
+ .recent-pets-page {
+  display: flex;
+  padding: 15px 25px;
+ }
+ #pet-name {
+  color: black;
+  text-align: center;
+  outline: none;
+  font-size: 1.5em;
+  text-decoration: none;
+  font-family: 'SimSun', sans-serif;
+  font-weight: bold;
+  padding:10px;
+  letter-spacing: 2px;
+ }
+ .see-more-button {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: 'SimSun', sans-serif;
+    cursor: pointer;
+ }
+ .see-more-button:hover {
+    background-color: orange;
+ }
+
+ .copyright-footer {
+   width: 100%;
+   height: 50px;
+   background-color: #373a3c;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+ }
+ .copyright-footer{
+  text-align: center;
+  color: white;
+  font-size: 0.75em;
+  font-family: 'SimSun';
+ }
+ .social-footer {
+  margin-top: 200px;
+  height: 150px;
+  width: 100%;
+  display: flex;
+ }
+ .social-column {
+   margin: 10px 15px;
+   width: 10%;
+ }
+ .social-nav-column {
+  display: flex;
+  flex-direction: column;
+ }
+ #social-nav-text {
+  text-decoration: none;
+  font-family: 'SimSun', sans-serif;
+  color: black;
+  padding: 10px 0;
+ }
+ #social-nav-text:hover {
+  font-weight: bolder;
+  font-size: 1.5em;
+ }
+ #social-header {
+  border-bottom: 1px dotted #373a3c;
+  font-family: 'SimSun', sans-serif;
+  font-size: 1.15em;
+ }
+ .social-text-column {
+   margin-top: 10px;
+ }
+ #social-text {
+  font-family: 'SimSun', sans-serif;
+  font-size: 1em;
+  margin: 5px 0;
+ }
+.social-pawprint-logo {
+  width: 25%;
+  margin-left: 20%;
+}
+#social-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+ #pawprint-logo {
+  font-family: 'SimSun';
+  font-size: 3em;
+ }
+ #pawprint-mission{
+  font-family: 'SimSun', sans-serif;
+  font-size: .85em;
+  width: 100%;
+  line-height: 1.5em;
+  color: black;
+  text-align: left;
+ }
+
+ .pet-modal-img {
+  width: 350px;
+  height: auto;
+ }
+ .pet-modal-header {
+    font-size: 5em;
+    font-family: 'SimSun', sans-serif;
+    border-bottom: 5px dotted black;
+ }
+ #pet-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;    
+    align-items: flex-start;
+    width: 50%;
+    padding: 10px 5px;
+ }
+ .pet-modal-text {
+    margin: 5px 0;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    font-family: 'SimSun', sans-serif;
+ }
+
+ #footer-nav-link:hover {
+  font-weight: bold;
+ }
+ #myBtn {
+  background-color: white !important;
+  padding: 0 !important;
+  cursor: pointer;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  padding: 10px !important;
+}
+
+#myBtn:focus {
+  outline: none;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 50%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+/* The Close Button */
+.close {
+  color: #eb0029;
+  margin-left: auto;
+  font-size: 50px !important;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+span {
+  color: black;
+  text-align: center;
+  outline: none;
+  font-size: 1.5em !important;
+  text-decoration: none;
+  font-family: 'SimSun', sans-serif !important;
+  font-weight: bold !important;
+  padding:10px;
+  margin-right: 10px !important;
+  border-bottom: 2px solid #373a3c !important;
+  letter-spacing: 2px;
+}
+
+#profile-pet {
+  width: 150px;
+  height: 150px;
+
+}
+#pets {
+  display: flex;
+  margin-bottom: 25px;
+}
+#recent-pet-div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  height: auto;
+  align-items: center;
+  box-shadow: 0 6px 5px -6px #777;
+  background-color: white;
+}
+</style>
+
+
+//Pet Page styling
+
+<style>
+header {}
+.pet-page {
+}
+#shelters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+}
+#shelter-container {
+  border-left: 3px dotted #98a075;
+  border-right: 3px dotted #98a075;
+  padding: 15px;
+}
+#shelter-name {
+  font-size: 3em;
+  font-family: 'SimSun', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 5px;
+
+}
+
+#shelter-address {
+  font-size: 1.5em;
+  font-family: 'SimSun', sans-serif;
+  text-align: center;
+}
+
+#shelter-phone {
+  font-family: 'SimSun', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+
+#pets-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 1rem;
+  grid-column-gap: 0rem;
+}
+.pets-header {
+  text-align: left;
+  font-size: 2.0em;
+  font-family: 'SimSun', sans-serif;
+  color: black;
+  padding: 10px;
+  margin-right: auto;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+ .pet-page-img-name-container {
+   border: 2px solid #373a3c;
+   height: 300px;
+   margin: 0 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 0 6px 5px -6px #777;
+   background-color: white;
+ }
+  #pet-page-name {
+    color: black;
+    text-align: center;
+    outline: none;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-family: 'SimSun', sans-serif;
+    font-weight: normal;
+    padding:10px;
+    letter-spacing: 2px;
+    border-bottom: 1px dotted black;
+ }
+</style>
+
+//Contact styling
+<style>
+.something{}
+#contact-header {
+  font-size: 3em;
+  margin: 20px 0;
+  font-family: 'SimSun';
+}
+
+.contact-image {
+  width: 350px !important;
+  height: auto;
+  box-shadow: 0 15px 15px 0px #777;
+}
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bottom-layer {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+  /*display: grid;*/
+  /*grid-template-columns: 1fr 1fr; */
+  /*grid-row-gap: 1rem;
+  grid-column-gap: 0rem;*/
+}
+.contact-container {
+  
+   height: 350px;
+   margin: 0 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0 6px 5px -6px #777;
+   background-color: white;
+}
+.top-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("clipart2.png");
+
+    /* Set a specific height */
+    min-height: 1110px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.8);
+}
+
+.parallax-petspage {
+    /* The image used */
+    background-image: url("clipart2.png");
+
+    /* Set a specific height */
+    min-height: 200px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.8);
+}
+
+
+</style>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <h1>Pets</h1>
+  <ul id="pets"></ul>
+</body>
+</html>
+
+<script>
+  function createNode(element) {
+      return document.createElement(element);
+  }
+
+  function append(parent, el) {
+    return parent.appendChild(el);
+  }
+
+const ul = document.getElementById('pets');
+const url = 'http://68.11.238.103:81/get_pets.php/';
+fetch(url)
+	.then((resp) => resp.json())
+		.then(function(data) {
+	    let pets = data.pets;
+	    return pets.map(function(pet) {
+	      console.log(url)
+	      let li = createNode('li'),
+	      	   p = createNode('p'),
+	      	  span = createNode('span');
+	      span.innerHTML = `${pet.name} ${pet.age}`;
+	      p = pet.id;
+	      console.log(pet.id)
+	      console.log(span)
+	      // append(li, img);
+	       append(li, span);
+	       append(ul, li);
+	    })
+	    console.log(url);
+		})
+  .catch(function(error) {
+    console.log(JSON.stringify(error));
+  });   
+</script>

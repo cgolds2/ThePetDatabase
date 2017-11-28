@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='style.css'>
+  <link rel='stylesheet' href='reset.css'>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="parallax">
+  <div class='header'>
+    <a href='pawprints.html' id='header'>Paw Prints</a>
+  </div>
+  <div class='pawprints-container'>
+	  <nav class="bar">
+	    <div>
+		  <a href="pawprints.html" class="button bar-item">HOME</a>
+		  <a href="pet-page.html" class="button bar-item">PETS</a>
+		  <a href="contact.html" class="button bar-item">ABOUT US</a>
+	    </div>
+	    <input type='text' id='search' name='search' placeholder='Search' onkeyup="return reDisplayData()"/>
+	  </nav>
+
+		<div class='recent-pet-container'>
+		  <h3 class='recent-pets-header'>Most Recent Pet Profiles</h3>
+		    <div>
+			  	<ul id='pets'></ul>
+			</div>
+			<!-- <ul id='pictures'></ul> -->
+		    <a href="pet-page.html">
+		      <button class="see-more-button">MORE PETS</button>
+		    </a>
+		</div>
+
+		<div class="shelter-footer">
+		  <h3 id='box-headers'>Partnered Shelters</h3>
+			<div class='shelter-img-links'>
+			  <a href='http://www.truefriendsawc.com/' target='_self'>
+			    <img class='shelter-img' src='true-friends-logo.png' alt='True Friends'></img>
+			  </a>
+				  <a href='http://www.caaws.org/' target='_self'>
+			    <img class='shelter-img' src='companion-alliance.png' alt='Companion Alliance'></img>
+			  </a>
+			  <a href='http://yelpbatonrouge.com/' target='_self'>
+			    <img class='shelter-img' src='yelp-br.jpg' alt='Yelp! BR'></img>
+			  </a>
+			</div>
+		</div>
+
+		<div class='social-footer'>
+		  <div class='social-pawprint-logo'>
+		    <h3 id='pawprint-logo'>PawPrints</h3>
+		    <p id='pawprint-mission'>Bacon ipsum dolor amet tail pork chop cow, turducken jowl chicken tongue t-bone. Landjaeger alcatra leberkas, porchetta ball tip jerky doner drumstick rump pork loin boudin andouille. Brisket meatloaf ribeye boudin.</p>
+		  </div>
+		  <div class='social-column'>
+		    <h4 id='social-header'>Navigation</h4>
+		    <div class='social-nav-column'>
+			  <a href="pawprints.html" id="social-nav-text"><p id='footer-nav-link'>HOME</p></a>
+			  <a href="pet-page.html" id="social-nav-text">PETS</a>
+			  <a href="contact.html" id="social-nav-text">ABOUT US</a>
+		    </div>
+		  </div>
+		  <div class='social-column'>
+		  	<h4 id='social-header'>Social Media</h4>
+		  	<img id='social-icon' src='facebook-icon.png' alt='facebook'></img>
+		  	<img id='social-icon' src='twitter-icon.png' alt='twitter'></img>
+		  </div>
+		  <div class='social-column'>
+		  	<h4 id='social-header'>Contact</h4>
+		  	<div class='social-text-column'>
+			  <p id='social-text'>support@pawprints.com</p>
+			  <p id='social-text'>Baton Rouge, LA 70802</p>
+			</div>
+		  </div>
+		</div>
+
+		<div class='copyright-footer'>
+		  <p>© 2017 PawPrints.</p>
+		</div>
+  </div>
+
+
+<script> //Modal Script
+var jsonText;
+	window.onclick = function(event) {
+	    if (event.target.className == 'modal') {
+	        event.target.style.display = "none";
+	        event.target.setAttribute("style", "display: none;");
+	    }
+	}
+
+
+function checkForValue(json, value) {
+	if(value == ''){
+		return true;
+	}
+    for (key in json) {
+        if (typeof (json[key]) === "object") {
+            return checkForValue(json[key], value);
+        } else if (json[key].toLowerCase().indexOf(value.toLowerCase())>=0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function reDisplayData(){
+	var searchString = document.getElementById('search').value;
+	  const ul = document.getElementById('pets');
+	
+
+	clearBox('pets');
+		
+		
+		    let pets = totalJson.pets;
+		    return pets.map(function(pet) {
+		    if (checkForValue(pet, searchString)) {
+
+		    
+		      //getPetImg(pet.id);
+		     let li = createNode('li'),
+		      	  span = createNode('span'),
+		      	  img = createNode('img'),
+		      	  div = createNode('div');
+		      	  petDiv = createNode('button');
+		      	  modalDiv = createNode('div');
+		      	  modalCont = createNode('div');
+		      	  modalSpan = createNode('span');
+		      	  petNotes = createNode('p');
+		      	  petSize = createNode('p');
+		      	  petWeight = createNode('p');
+		      	  petType = createNode('p');
+		      	  petBreed = createNode('p');
+		      	  petAge = createNode('p');
+		      	  petModalImg = createNode('img');
+		      	  petModalName = createNode('h2');
+		      	  petModalDiv = createNode('div');
+		      img.id = 'profile-pet';
+		      li.id = 'list-button';
+
+		      petNotes.className = 'pet-modal-text';
+		      petSize.className = 'pet-modal-text';
+		      petType.className = 'pet-modal-text';
+		      petWeight.className = 'pet-modal-text';
+		      petBreed.className = 'pet-modal-text';
+		      petAge.className = 'pet-modal-text';
+		      petModalImg.className = 'pet-modal-img';
+		      petModalName.className = 'pet-modal-header';
+		      petModalDiv.id = 'pet-text-container';
+		      
+		      div.className = 'pet-img-name-container';
+		      modalDiv.id = pet.id;
+		      petDiv.id = 'myBtn';
+		      petDiv.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='block';");
+		      modalSpan.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='none';")
+  		      modalSpan.className = 'close';
+		      modalDiv.className = 'modal';
+		      modalCont.className = 'modal-content';
+
+
+		      petModalImg.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+  		      modalSpan.innerHTML = '&times';
+		      petModalName.innerHTML = pet.name;
+		      petNotes.innerHTML = 'Description: ' + pet.notes;
+		      petSize.innerHTML = 'Size: ' + pet.size;
+		      petWeight.innerHTML = 'Weight: ' + pet.weight+"lbs";
+		      petType.innerHTML = 'Type: ' + pet.animal_type;
+		      petBreed.innerHTML = 'Breed: ' + pet.breed;
+		      petAge.innerHTML = 'Age: ' + (new Date().getFullYear() - pet.age.substring(0,4)) + " yr " + 
+		      					  (new Date().getMonth() - pet.age.substring(6,7) + " mo.");
+		      span.innerHTML = pet.name;
+		      img.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+
+		      append(petModalDiv, petAge);
+		      append(petModalDiv, petType);
+		      append(petModalDiv, petBreed);
+		      append(petModalDiv, petSize);
+		      append(petModalDiv, petWeight);
+		      append(petModalDiv, petNotes);
+  		      append(modalCont, modalSpan);
+		      append(modalCont, petModalImg);
+		      append(modalCont, petModalName);
+		      append(modalCont, petModalDiv);
+		      append(modalDiv, modalCont);
+		      append(petDiv, img);
+		      append(petDiv, span);
+		      append(div, petDiv);
+  		      append(div, modalDiv);
+		      append(li, div);
+		      append(ul, li);
+		    }})
+
+}
+
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
+function createNode(element) {
+  return document.createElement(element);
+}
+
+function append(parent, el) {
+return parent.appendChild(el);
+}
+
+
+
+function getPetData() {
+  const ul = document.getElementById('pets');
+  const url = 'http://68.11.238.103:81/get_pets.php/?id=1';
+  fetch(url)
+	.then((res) => res.json())
+		.then(function(data) {
+			console.log(data);
+		    let pets = data.pets.slice(0,5);
+		    		    totalJson=data;
+
+		    return pets.map(function(pet) {
+		      getPetImg(pet.id);
+		      let li = createNode('li'),
+		      	  span = createNode('span'),
+		      	  img = createNode('img'),
+		      	  div = createNode('div');
+		      	  petDiv = createNode('button');
+		      	  modalDiv = createNode('div');
+		      	  modalCont = createNode('div');
+		      	  modalSpan = createNode('span');
+		      	  petNotes = createNode('p');
+		      	  petSize = createNode('p');
+		      	  petWeight = createNode('p');
+		      	  petType = createNode('p');
+		      	  petBreed = createNode('p');
+		      	  petAge = createNode('p');
+		      	  petModalImg = createNode('img');
+		      	  petModalName = createNode('h2');
+		      	  petModalDiv = createNode('div');
+		      img.id = 'profile-pet';
+		      li.id = 'list-button';
+
+		      petNotes.className = 'pet-modal-text';
+		      petSize.className = 'pet-modal-text';
+		      petType.className = 'pet-modal-text';
+		      petWeight.className = 'pet-modal-text';
+		      petBreed.className = 'pet-modal-text';
+		      petAge.className = 'pet-modal-text';
+		      petModalImg.className = 'pet-modal-img';
+		      petModalName.className = 'pet-modal-header';
+		      petModalDiv.id = 'pet-text-container';
+		      
+		      div.className = 'pet-img-name-container';
+		      modalDiv.id = pet.id;
+		      petDiv.id = 'myBtn';
+		      petDiv.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='block';");
+		      modalSpan.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='none';")
+  		      modalSpan.className = 'close';
+		      modalDiv.className = 'modal';
+		      modalCont.className = 'modal-content';
+
+
+		      petModalImg.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+  		      modalSpan.innerHTML = '&times';
+		      petModalName.innerHTML = pet.name;
+		      petNotes.innerHTML = 'Description: ' + pet.notes;
+		      petSize.innerHTML = 'Size: ' + pet.size;
+		      petWeight.innerHTML = 'Weight: ' + pet.weight+"lbs";
+		      petType.innerHTML = 'Type: ' + pet.animal_type;
+		      petBreed.innerHTML = 'Breed: ' + pet.breed;
+		      petAge.innerHTML = 'Age: ' + (new Date().getFullYear() - pet.age.substring(0,4)) + " yr " + 
+		      					  (new Date().getMonth() - pet.age.substring(6,7) + " mo.");
+		      span.innerHTML = pet.name;
+		      img.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+
+		      append(petModalDiv, petAge);
+		      append(petModalDiv, petType);
+		      append(petModalDiv, petBreed);
+		      append(petModalDiv, petSize);
+		      append(petModalDiv, petWeight);
+		      append(petModalDiv, petNotes);
+  		      append(modalCont, modalSpan);
+		      append(modalCont, petModalImg);
+		      append(modalCont, petModalName);
+		      append(modalCont, petModalDiv);
+		      append(modalDiv, modalCont);
+		      append(petDiv, img);
+		      append(petDiv, span);
+		      append(div, petDiv);
+  		      append(div, modalDiv);
+		      append(li, div);
+		      append(ul, li);
+		    })
+		})
+.catch(function(error) {
+    console.log('error');
+  })
+}
+
+
+function getPetImg(id) {
+	const ul = document.getElementById('pictures');
+	const url = 'http://68.11.238.103:81/get_picture.php?id=' + id;
+	fetch(url)
+	.then((res) => res.json())
+		.then(function(data) {
+			console.log(data);
+			let pictures = data.pictures;
+			return pictures.map(function(picture) {
+				let img = createNode('img'),
+					li = createNode('li');
+				let profileImg = 'http://68.11.238.103:81/'+picture.data;
+				img.src= profileImg;
+				append(li, img);
+				append(ul, li);
+			})
+		})
+		.catch(function(error) {
+    		console.log('picture not found');
+  		})
+}
+
+getPetData();
+</script>
+</div>
+</body>
+</html>
+
