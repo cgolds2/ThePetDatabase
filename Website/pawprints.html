@@ -23,7 +23,7 @@
 		  <a href="pet-page.html" class="button bar-item">PETS</a>
 		  <a href="contact.html" class="button bar-item">ABOUT US</a>
 	    </div>
-	    <input type='text' id='search' name='search' placeholder='Search'/>
+	    <input type='text' id='search' name='search' placeholder='Search' onkeyup="return reDisplayData()"/>
 	  </nav>
 
 		<div class='recent-pet-container'>
@@ -86,12 +86,121 @@
 
 
 <script> //Modal Script
+var jsonText;
 	window.onclick = function(event) {
 	    if (event.target.className == 'modal') {
 	        event.target.style.display = "none";
 	        event.target.setAttribute("style", "display: none;");
 	    }
 	}
+
+
+function checkForValue(json, value) {
+	if(value == ''){
+		return true;
+	}
+    for (key in json) {
+        if (typeof (json[key]) === "object") {
+            return checkForValue(json[key], value);
+        } else if (json[key].toLowerCase().indexOf(value.toLowerCase())>=0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function reDisplayData(){
+	var searchString = document.getElementById('search').value;
+	  const ul = document.getElementById('pets');
+	
+
+	clearBox('pets');
+		
+		
+		    let pets = totalJson.pets;
+		    return pets.map(function(pet) {
+		    if (checkForValue(pet, searchString)) {
+
+		    
+		      //getPetImg(pet.id);
+		     let li = createNode('li'),
+		      	  span = createNode('span'),
+		      	  img = createNode('img'),
+		      	  div = createNode('div');
+		      	  petDiv = createNode('button');
+		      	  modalDiv = createNode('div');
+		      	  modalCont = createNode('div');
+		      	  modalSpan = createNode('span');
+		      	  petNotes = createNode('p');
+		      	  petSize = createNode('p');
+		      	  petWeight = createNode('p');
+		      	  petType = createNode('p');
+		      	  petBreed = createNode('p');
+		      	  petAge = createNode('p');
+		      	  petModalImg = createNode('img');
+		      	  petModalName = createNode('h2');
+		      	  petModalDiv = createNode('div');
+		      img.id = 'profile-pet';
+		      li.id = 'list-button';
+
+		      petNotes.className = 'pet-modal-text';
+		      petSize.className = 'pet-modal-text';
+		      petType.className = 'pet-modal-text';
+		      petWeight.className = 'pet-modal-text';
+		      petBreed.className = 'pet-modal-text';
+		      petAge.className = 'pet-modal-text';
+		      petModalImg.className = 'pet-modal-img';
+		      petModalName.className = 'pet-modal-header';
+		      petModalDiv.id = 'pet-text-container';
+		      
+		      div.className = 'pet-img-name-container';
+		      modalDiv.id = pet.id;
+		      petDiv.id = 'myBtn';
+		      petDiv.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='block';");
+		      modalSpan.setAttribute('onclick', "document.getElementById('" + pet.id + "').style.display='none';")
+  		      modalSpan.className = 'close';
+		      modalDiv.className = 'modal';
+		      modalCont.className = 'modal-content';
+
+
+		      petModalImg.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+  		      modalSpan.innerHTML = '&times';
+		      petModalName.innerHTML = pet.name;
+		      petNotes.innerHTML = 'Description: ' + pet.notes;
+		      petSize.innerHTML = 'Size: ' + pet.size;
+		      petWeight.innerHTML = 'Weight: ' + pet.weight+"lbs";
+		      petType.innerHTML = 'Type: ' + pet.animal_type;
+		      petBreed.innerHTML = 'Breed: ' + pet.breed;
+		      petAge.innerHTML = 'Age: ' + (new Date().getFullYear() - pet.age.substring(0,4)) + " yr " + 
+		      					  (new Date().getMonth() - pet.age.substring(6,7) + " mo.");
+		      span.innerHTML = pet.name;
+		      img.src = 'http://68.11.238.103:81/'+ pet.profile_picture;
+
+		      append(petModalDiv, petAge);
+		      append(petModalDiv, petType);
+		      append(petModalDiv, petBreed);
+		      append(petModalDiv, petSize);
+		      append(petModalDiv, petWeight);
+		      append(petModalDiv, petNotes);
+  		      append(modalCont, modalSpan);
+		      append(modalCont, petModalImg);
+		      append(modalCont, petModalName);
+		      append(modalCont, petModalDiv);
+		      append(modalDiv, modalCont);
+		      append(petDiv, img);
+		      append(petDiv, span);
+		      append(div, petDiv);
+  		      append(div, modalDiv);
+		      append(li, div);
+		      append(ul, li);
+		    }})
+
+}
+
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
 function createNode(element) {
   return document.createElement(element);
 }
@@ -99,6 +208,8 @@ function createNode(element) {
 function append(parent, el) {
 return parent.appendChild(el);
 }
+
+
 
 function getPetData() {
   const ul = document.getElementById('pets');
@@ -108,6 +219,8 @@ function getPetData() {
 		.then(function(data) {
 			console.log(data);
 		    let pets = data.pets.slice(0,5);
+		    		    totalJson=data;
+
 		    return pets.map(function(pet) {
 		      getPetImg(pet.id);
 		      let li = createNode('li'),
