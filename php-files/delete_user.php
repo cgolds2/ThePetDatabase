@@ -23,23 +23,17 @@ $data = json_decode($json, true);
 // get user_id to delete user
 $id_param = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 if ($id_param == null) {
-    echo '{';
-    echo '"error": "No Pet ID specified to update."';
-    echo '}';
+    echo -1;
     return -1;
 }
 
 $user->id = $id_param;
 
 if ($user->delete()) {
-    echo '{';
-    echo '"message": "User was successfully deleted."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error deleting user."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

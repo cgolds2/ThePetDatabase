@@ -17,17 +17,19 @@ $conn = $database->getConnection();
 
 $picture = new Picture($conn);
 
-$picture->id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+$pet_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+if ($picture == null) {
+    echo -1;
+    return -1;
+}
+
+$picture->id = $pet_id;
 
 if ($picture->delete()) {
-    echo '{';
-    echo '"message": "Shelter was successfully deleted from database."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error deleting picture from database."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

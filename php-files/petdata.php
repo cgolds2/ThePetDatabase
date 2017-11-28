@@ -112,7 +112,6 @@ class PetData {
                 animal_type=:animal_type,
                 weight=:weight,
                 shelter_id=:shelter_id,
-                profile_picture=:profile_picture,
                 size=:size,
                 chip_id=:chip_id
             WHERE
@@ -129,7 +128,6 @@ class PetData {
         $stmt->bindParam(":animal_type", $this->animal_type);
         $stmt->bindParam(":weight", $this->weight);
         $stmt->bindParam(":shelter_id", $this->shelter_id);
-        $stmt->bindParam(":profile_picture", $this->profile_picture);
         $stmt->bindParam(":size", $this->size);
         $stmt->bindParam(":chip_id", $this->chip_id);
 

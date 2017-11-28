@@ -21,7 +21,6 @@ $json = file_get_contents("php://input");
 $data = json_decode($json, true);
 
 $user->username = $data['username'];
-$user->shelter_id = $data['shelter_id'];
 $user->email = $data['email'];
 
 if ($data['password'] != null) {
@@ -30,14 +29,10 @@ if ($data['password'] != null) {
 }
 
 if ($user->update()) {
-    echo '{';
-    echo '"message": "User was successfully updated."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error updating user info."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

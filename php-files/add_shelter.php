@@ -26,9 +26,6 @@ $shelter->website = $data['website'];
 $shelter->phone_number = $data['phone_number'];
 $shelter->admin_id = $data['admin_id'];
 
-//echo $shelter->name;
-//echo $shelter->address;
-
 if ($shelter->create()) {
     echo 1;
     return 1;

@@ -20,9 +20,7 @@ $pet = new PetData($conn);
 $pet_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
 if ($pet_id == null) {
-    echo '{';
-    echo '"error": "No Shelter ID specified to update."';
-    echo '}';
+    echo -1;
     return -1;
 }
 
@@ -39,7 +37,8 @@ if ($num > 0) {
         echo $row['profile_picture'];
     }
 } else {
-    echo "No pictures found for pet.";
+    echo -1;
+   return -1;
 }
 
 ?>

@@ -24,9 +24,7 @@ $data = json_decode($json, true);
 $id_param = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
 if ($id_param == null) {
-    echo '{';
-    echo '"error": "No Pet ID specified to update."';
-    echo '}';
+    echo -1;
     return -1;
 }
 
@@ -38,7 +36,6 @@ $pet->breed = $data['breed'];
 $pet->animal_type = $data['animal_type'];
 $pet->weight = $data['weight'];
 $pet->shelter_id = $data['shelter_id'];
-$pet->profile_picture = $data['profile_picture'];
 $pet->size = $data['size'];
 $pet->chip_id = $data['chip_id'];
 

@@ -19,9 +19,7 @@ $pet = new PetData($conn);
 
 $id_param = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 if ($id_param == null) {
-    echo '{';
-    echo '"error": "No Pet ID specified to update."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

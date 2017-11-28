@@ -29,14 +29,10 @@ $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 $result = $user->create();
 if ($result != 0) {
-    echo '{';
-    echo '"message": "User was successfully added to database."';
-    echo '}';
+    echo 1;
     return 1;
 } else {
-    echo '{';
-    echo '"message": "Error adding user to database."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

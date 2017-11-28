@@ -25,9 +25,7 @@ $data = json_decode($json, true);
 $id_param = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
 if ($id_param == null) {
-    echo '{';
-    echo '"error": "No Shelter ID specified to update."';
-    echo '}';
+    echo -1;
     return -1;
 }
 

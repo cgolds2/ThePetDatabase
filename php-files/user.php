@@ -108,7 +108,6 @@ class User {
         $query = "UPDATE
                 " . $this->table_name . "
             SET
-                shelter_id=:shelter_id,
                 email=:email
             WHERE
                 username=:username";
@@ -119,7 +118,6 @@ class User {
                     " . $this->table_name . "
                 SET
                     password_hash=:password_hash,
-                    shelter_id=:shelter_id,
                     email=:email
                 WHERE
                     username=:username";
@@ -129,7 +127,6 @@ class User {
 
         // bind parameters
         $stmt->bindParam(":username", $this->username);
-        $stmt->bindParam(":shelter_id", $this->shelter_id);
         $stmt->bindParam(":email", $this->email);
         if ($this->password_hash != null) {
             $stmt->bindParam(":password_hash", $this->password_hash);

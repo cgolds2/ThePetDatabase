@@ -20,9 +20,7 @@ $pet = new PetData($conn);
 $pet_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
 if ($pet_id == null) {
-    echo '{';
-    echo '"error": "No Shelter ID specified to update."';
-    echo '}';
+    echo -1;
     return -1;
 }
 
@@ -54,15 +52,15 @@ if (!empty($_FILES["picture"]["name"])) {
         $pet->profile_picture = $target_path;
 
         if ($pet->add_profile_pic()) {
-            echo "Picture successfully uploaded to database";
+            echo 1;
             return 1;
         } else {
-            echo mysql_error();
+            echo -1;
             return -1;
         }
         
     } else {
-        echo "Error uploading picture to server.";
+        echo -1;
         return -1;
     } 
 

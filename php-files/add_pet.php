@@ -27,7 +27,7 @@ $pet->breed = $data['breed'];
 $pet->animal_type = $data['animal_type'];
 $pet->weight = $data['weight'];
 $pet->shelter_id = $data['shelter_id'];
-$pet->profile_picture = $data['profile_picture'];
+$pet->profile_picture = "images/default.jpg";
 $pet->size = $data['size'];
 $pet->chip_id = $data['chip_id'];
 

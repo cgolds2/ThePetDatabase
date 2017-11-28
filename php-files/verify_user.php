@@ -42,15 +42,12 @@ if ($num > 0) {
         echo json_encode($users);
         return 1;
     } else {
-        echo json_encode(
-                array("error" => "Incorrect username or password.")
-        );
+        echo -1;
+        return -1;
     }
 } else {
-    echo json_encode(
-            array("error" => "Incorrect username or password.")
-    );
+    echo -1;
+    return -1;
 }
-return -1;
 
 ?>
