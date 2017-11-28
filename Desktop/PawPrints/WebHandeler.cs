@@ -122,11 +122,11 @@ namespace PawPrints
         #endregion
 
         #region Picture
-        //TODO get this working
-        public static Tuple<List<Image>, int> getAnimalPictures(int animalID)
-        {
-            throw new NotImplementedException();
-        }
+        ////Staged as unnecessary
+        //public static Tuple<List<Image>, int> getAnimalPictures(int animalID)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public static string addPicture(String fileName, int animalID)
         {
@@ -165,11 +165,11 @@ namespace PawPrints
 
 
 
-        //TODO get this working
-        public static int deletePicture(int pictureID)
-        {
-            throw new NotImplementedException();
-        }
+        ////Staged as unnecessary
+        //public static int deletePicture(int pictureID)
+        //{
+        //    throw new NotImplementedException();
+        //}
         #endregion
 
         #region Shelter
@@ -257,7 +257,6 @@ namespace PawPrints
             {
                 return -2;
             }
-            //TODO fix this
             return int.Parse(result);
         }
 
@@ -290,7 +289,6 @@ namespace PawPrints
             {
                 return Tuple.Create((User)null, -2);
             }
-            //TODO
             User u = JsonConvert.DeserializeObject<User>(result);
             return Tuple.Create(u, 1);
         }
