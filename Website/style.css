@@ -546,6 +546,12 @@ header {}
     background-size: cover;
     box-shadow: inset 0 0 0 1000px rgba(255,255,255,.8);
 }
+.sarah-pic{
+  width: auto !important;
+  height: 350px;
+  box-shadow: 0 15px 15px 0px #777;
+
+}
 
 
 </style>
