@@ -39,6 +39,10 @@ namespace PawPrints
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Tuple<Animal, int> selectedAnimal = WebHandeler.getAnimal((int)dgvAnimalList.Rows[e.RowIndex].Cells[0].Value);
+            if (selectedAnimal == null)
+            {
+                return;
+            }
             AnimalDetailForm detailForm = new AnimalDetailForm(selectedAnimal.Item1);
             detailForm.ShowDialog();
         }

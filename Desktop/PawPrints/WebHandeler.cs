@@ -13,6 +13,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Windows.Forms;
 using System.Net;
+using Newtonsoft.Json.Converters;
 
 namespace PawPrints
 {
@@ -90,19 +91,17 @@ namespace PawPrints
 
         public static int addPet(Animal pet)
         {
-            string jsonString = JsonConvert.SerializeObject(pet);
+            string jsonString = JsonConvert.SerializeObject(pet, Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
             MessageBox.Show("JSON STRING" + jsonString);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "add_pet.php"));
-            if (result.Equals("-1"))
+            result = result.Trim();
+            int temp;
+            if (int.TryParse(result, out temp))
             {
-                return -1;
+                return temp;
             }
-            if (result.Equals("-2"))
-            {
-                return -2;
-            }
-            return 1;
+            return -2;
         }
 
         public static int updatePet(Animal pet)
@@ -115,7 +114,7 @@ namespace PawPrints
 
         public static int deleteAnimal(int petID)
         {
-            string result = (RestService.PostCall("", baseuri + "delete_pet?id=" + petID));
+            string result = (RestService.PostCall("", baseuri + "delete_pet.php?id=" + petID));
             return int.Parse(result);
         }
 
@@ -225,7 +224,6 @@ namespace PawPrints
         public static int updateUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
-            MessageBox.Show("JSON STRING" + jsonString);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + user.id));
             return int.Parse(result);
@@ -281,6 +279,7 @@ namespace PawPrints
             ob["password"] = password;
 
             string result = (RestService.PostCall(ob.ToString(), baseuri + "verify_user.php"));
+            result = result.Trim();
             if (result.Equals("-1") || result.Equals("\n{\"error\":\"Incorrect username or password.\"}"))
             {
                 return Tuple.Create((User)null, -1);

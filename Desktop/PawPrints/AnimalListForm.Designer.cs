@@ -41,10 +41,9 @@
             // btnAddPet
             // 
             this.btnAddPet.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAddPet.Location = new System.Drawing.Point(16, 572);
-            this.btnAddPet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddPet.Location = new System.Drawing.Point(12, 465);
             this.btnAddPet.Name = "btnAddPet";
-            this.btnAddPet.Size = new System.Drawing.Size(100, 28);
+            this.btnAddPet.Size = new System.Drawing.Size(75, 23);
             this.btnAddPet.TabIndex = 5;
             this.btnAddPet.Text = "Add";
             this.btnAddPet.UseVisualStyleBackColor = true;
@@ -53,10 +52,9 @@
             // btnRefresh
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnRefresh.Location = new System.Drawing.Point(529, 572);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Location = new System.Drawing.Point(397, 465);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -69,6 +67,7 @@
             this.dgvAnimalList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAnimalList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAnimalList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAnimalList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAnimalList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -76,23 +75,21 @@
             this.petName,
             this.Picture});
             this.dgvAnimalList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAnimalList.Location = new System.Drawing.Point(16, 15);
-            this.dgvAnimalList.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvAnimalList.Location = new System.Drawing.Point(12, 12);
             this.dgvAnimalList.Name = "dgvAnimalList";
             this.dgvAnimalList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnimalList.ShowCellToolTips = false;
             this.dgvAnimalList.ShowEditingIcon = false;
-            this.dgvAnimalList.Size = new System.Drawing.Size(613, 550);
+            this.dgvAnimalList.Size = new System.Drawing.Size(460, 447);
             this.dgvAnimalList.TabIndex = 3;
             this.dgvAnimalList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnAdmin
             // 
             this.btnAdmin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdmin.Location = new System.Drawing.Point(268, 572);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdmin.Location = new System.Drawing.Point(201, 465);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(100, 28);
+            this.btnAdmin.Size = new System.Drawing.Size(75, 23);
             this.btnAdmin.TabIndex = 6;
             this.btnAdmin.Text = "Admin Controls";
             this.btnAdmin.UseVisualStyleBackColor = true;
@@ -102,15 +99,17 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 10;
             this.id.Name = "id";
-            this.id.Width = 50;
+            this.id.Width = 43;
             // 
             // petName
             // 
             this.petName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.petName.HeaderText = "Name";
+            this.petName.MinimumWidth = 10;
             this.petName.Name = "petName";
-            this.petName.Width = 74;
+            this.petName.Width = 60;
             // 
             // Picture
             // 
@@ -119,18 +118,17 @@
             this.Picture.Name = "Picture";
             this.Picture.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Picture.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Picture.Width = 125;
+            this.Picture.Width = 97;
             // 
             // AnimalListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 612);
+            this.ClientSize = new System.Drawing.Size(480, 497);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnAddPet);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dgvAnimalList);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AnimalListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnimalListForm";
