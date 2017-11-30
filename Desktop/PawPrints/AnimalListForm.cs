@@ -25,7 +25,8 @@ namespace PawPrints
             List<Animal> animalList = result.Item1;
             foreach (Animal animal in animalList)
             {
-                if(WebHandeler.getPicture(animal.id).Item2 != -1)
+                //checks if the picture is set
+                if (WebHandeler.getPicture(animal.id).Item2 != -1)
                 {
                     dgvAnimalList.Rows.Add(animal.id, animal.name, WebHandeler.getPicture(animal.id).Item1);
                 }
@@ -36,6 +37,9 @@ namespace PawPrints
             }
         }
 
+        /*
+         *  When any cell containing an animal is selected
+         */
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Tuple<Animal, int> selectedAnimal = WebHandeler.getAnimal((int)dgvAnimalList.Rows[e.RowIndex].Cells[0].Value);

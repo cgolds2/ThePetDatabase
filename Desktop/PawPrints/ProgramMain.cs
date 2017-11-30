@@ -21,6 +21,7 @@ namespace PawPrints
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //starts user at login screen
             Application.Run(new LoginForm());
         }
     }
