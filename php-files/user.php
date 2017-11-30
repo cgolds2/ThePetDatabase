@@ -17,23 +17,6 @@ class User {
     }
 
 
-    function read_all() {
-        // query to select all
-        $query = "SELECT *
-            FROM
-                " . $this->table_name . " d
-            ORDER BY
-                d.id";
-        // prepare query statement
-        $stmt = $this->conn->prepare($query);
-
-        // execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-
     function read_id() {
         // query to select all
         $query = "SELECT *

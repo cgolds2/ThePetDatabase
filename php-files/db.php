@@ -6,8 +6,8 @@ class Db {
 
     private $host = "localhost";
     private $db_name = "pawprints_db";
-    private $username = "pawprints";
-    private $password = "steveis#1babysitter";
+    private $username = "USERNAME";
+    private $password = "PASSWORD";
     public $conn;
 
     // get the database connection
