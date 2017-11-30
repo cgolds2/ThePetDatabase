@@ -1,7 +1,14 @@
+/*THIS CLASS IS FOR STYLING THE WEBSITE USING MODULES/METHODS*/
+/*.METHODNAME IS FOR CLASS
+#METHODNAME IS FOR ID*/
+/*SECTIONED INTO HOMEPAGE STYLING, PETPAGE, CONTACT STYLING*/
+
+
 @media (max-width: 768px) {
   #header { font-size: 3em !important; }
 }
 
+/*HOMEPAGE STYLING*/
 <style>
 html {
     margin:0px;
