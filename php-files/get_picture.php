@@ -25,7 +25,7 @@ if ($pet_id == null) {
 }
 
 $picture->pet_id = $pet_id;
-$stmt = $picture->read_all();
+$stmt = $picture->read_id();
 $num = $stmt->rowCount();
 
 // check if more than 0 record found
