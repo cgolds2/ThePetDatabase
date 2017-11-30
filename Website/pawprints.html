@@ -10,12 +10,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+<!-- body feature of website -->
+
 <body>
 	<div class="parallax">
   <div class='header'>
     <a href='pawprints.html' id='header'>Paw Prints</a>
   </div>
   <div class='pawprints-container'>
+
+  	<!-- navigation bar of homepage -->
+
 	  <nav class="bar">
 	    <div>
 		  <a href="pawprints.html" class="button bar-item">HOME</a>
@@ -24,6 +29,8 @@
 	    </div>
 	    <input type='text' id='search' name='search' placeholder='Search' onkeyup="return reDisplayData()"/>
 	  </nav>
+
+	  <!-- most recent pet profiles photos collection -->
 
 		<div class='recent-pet-container'>
 		  <h3 class='recent-pets-header'>Most Recent Pet Profiles</h3>
@@ -35,6 +42,8 @@
 		      <button class="see-more-button">MORE PETS</button>
 		    </a>
 		</div>
+
+		<!-- BOX FOR PARTNERED SHELTERS LOGOS AND LINK -->
 
 		<div class="shelter-footer">
 		  <h3 id='box-headers'>Partnered Shelters</h3>
@@ -50,6 +59,8 @@
 			  </a>
 			</div>
 		</div>
+
+		<!-- ADDITIONAL WEBSITE FEATURES AT BOTTOM PAGE.. INCLUDING ADDITIONAL NAVIGATION -->
 
 		<div class='social-footer'>
 		  <div class='social-pawprint-logo'>
@@ -84,6 +95,8 @@
   </div>
 
 
+<!-- MODAL SCRIPT. DYNAMIC PULL FROM SERVER -->
+
 <script> //Modal Script
 var jsonText;
 	window.onclick = function(event) {
@@ -108,6 +121,7 @@ function checkForValue(json, value) {
     return false;
 }
 
+// DISPLAY ANIMAL INFORMATION FROM SERVER USING API CALLS
 function reDisplayData(){
 	var searchString = document.getElementById('search').value;
 	  const ul = document.getElementById('pets');
@@ -208,7 +222,7 @@ function append(parent, el) {
 return parent.appendChild(el);
 }
 
-
+// API CALLS FOR DYNAMIC PULL FROM SERVER INTO WEBSITE. USED FETCH() WITH JAVASCRIPT
 
 function getPetData() {
   const ul = document.getElementById('pets');
