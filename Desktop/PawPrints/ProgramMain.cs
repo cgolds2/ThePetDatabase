@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,31 +18,11 @@ namespace PawPrints
         [STAThread]
         static void Main()
         {
-
-         //   WebHandeler.addPicture(@"D:\Users\Connor\Desktop\GameAndWatchHead.png", 89);
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //starts user at login screen
             Application.Run(new LoginForm());
-           
-
-            //Form x = new AddEditForm();
-            //x.Show();
-            //x.Close();
-            //x = new AdminForm();
-            //x.Show();
-            //x.Close();
-            // x = new AnimalDetailForm();
-            //x.Show();
-            //x.Close();
-            // x = new AnimalListForm();
-            //x.Show();
-            //x.Close();
-            // x = new CreateById();
-            //x.Show();
-            //x.Close();
-            //x = new UploadImageForm();
-            //x.Show();
-            //x.Close();
         }
     }
 }

@@ -57,12 +57,11 @@
             this.userEmail,
             this.userName});
             this.dgvUserList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvUserList.Location = new System.Drawing.Point(16, 37);
-            this.dgvUserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUserList.Location = new System.Drawing.Point(12, 30);
             this.dgvUserList.Name = "dgvUserList";
             this.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserList.ShowEditingIcon = false;
-            this.dgvUserList.Size = new System.Drawing.Size(527, 523);
+            this.dgvUserList.Size = new System.Drawing.Size(395, 425);
             this.dgvUserList.TabIndex = 4;
             this.dgvUserList.CurrentCellChanged += new System.EventHandler(this.dgvUserList_CurrentCellChanged);
             this.dgvUserList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_RowEnter);
@@ -85,19 +84,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Users";
             // 
             // btnCreateUser
             // 
-            this.btnCreateUser.Location = new System.Drawing.Point(551, 150);
-            this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateUser.Location = new System.Drawing.Point(413, 122);
             this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(188, 28);
+            this.btnCreateUser.Size = new System.Drawing.Size(141, 23);
             this.btnCreateUser.TabIndex = 6;
             this.btnCreateUser.Text = "Create User";
             this.btnCreateUser.UseVisualStyleBackColor = true;
@@ -105,10 +102,9 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(551, 37);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteUser.Location = new System.Drawing.Point(413, 30);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(188, 28);
+            this.btnDeleteUser.Size = new System.Drawing.Size(141, 23);
             this.btnDeleteUser.TabIndex = 7;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
@@ -116,75 +112,67 @@
             // 
             // btnChangeInfo
             // 
-            this.btnChangeInfo.Location = new System.Drawing.Point(551, 374);
-            this.btnChangeInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangeInfo.Location = new System.Drawing.Point(413, 304);
             this.btnChangeInfo.Name = "btnChangeInfo";
-            this.btnChangeInfo.Size = new System.Drawing.Size(188, 28);
+            this.btnChangeInfo.Size = new System.Drawing.Size(141, 23);
             this.btnChangeInfo.TabIndex = 8;
-            this.btnChangeInfo.Text = "Change User Info";
+            this.btnChangeInfo.Text = "Change Password";
             this.btnChangeInfo.UseVisualStyleBackColor = true;
             this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(551, 182);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(413, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Username";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(551, 242);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(413, 197);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Password";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(555, 202);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Location = new System.Drawing.Point(416, 164);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(183, 22);
+            this.txtUsername.Size = new System.Drawing.Size(138, 20);
             this.txtUsername.TabIndex = 11;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(555, 262);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Location = new System.Drawing.Point(416, 213);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(183, 22);
+            this.txtPassword.Size = new System.Drawing.Size(138, 20);
             this.txtPassword.TabIndex = 12;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(555, 326);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Location = new System.Drawing.Point(416, 265);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(183, 22);
+            this.txtEmail.Size = new System.Drawing.Size(138, 20);
             this.txtEmail.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(551, 306);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(413, 249);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 17);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Email";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(555, 532);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Location = new System.Drawing.Point(416, 432);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(188, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(141, 23);
             this.btnRefresh.TabIndex = 15;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -192,9 +180,9 @@
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 602);
+            this.ClientSize = new System.Drawing.Size(566, 489);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label4);
@@ -207,7 +195,6 @@
             this.Controls.Add(this.btnCreateUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvUserList);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.Load += new System.EventHandler(this.AdminForm_Load);

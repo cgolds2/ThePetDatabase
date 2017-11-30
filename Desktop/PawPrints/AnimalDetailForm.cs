@@ -34,8 +34,13 @@ namespace PawPrints
         //redirects to AddEditForm
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            AddEditForm editForm = new AddEditForm(animal);
-            editForm.Show();
+            using (AddEditForm editForm = new AddEditForm(animal))
+            {
+                editForm.ShowDialog();
+            }
+
+            animal = WebHandeler.getAnimal(animal.id).Item1;
+            AnimalForm_Load(sender, e);
         }
 
         //redirects to UploadByID form

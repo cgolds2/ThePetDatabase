@@ -73,7 +73,7 @@ namespace PawPrints
                 u.password = txtPassword.Text;
                 u.username = txtUsername.Text;
                 u.shelter_id = ProgramMain.currentUser.shelter_id;
-                MessageBox.Show("User: " + u.shelter_id + "    Current User:" + ProgramMain.currentUser.shelter_id);
+              //  MessageBox.Show("User: " + u.shelter_id + "    Current User:" + ProgramMain.currentUser.shelter_id);
                 if (WebHandeler.createUser(u) == 1){
                     MessageBox.Show("User creation successful");
                     updateGrid();

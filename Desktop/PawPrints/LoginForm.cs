@@ -21,9 +21,9 @@ namespace PawPrints
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://dcrypt.it/decrypt/paste");
             Tuple<User,int> response = WebHandeler.verifyUser(txtUsername.Text, txtPassword.Text);
 
+            //checks if the user successfully logged in
             if (response.Item2 == -1)
             {
                 MessageBox.Show("Incorrect Login");
@@ -33,6 +33,7 @@ namespace PawPrints
                 MessageBox.Show("Could not connect to server");
 
             }
+            //allows user to enter the application on successful login
             else if(response.Item2 == 1)
             {
                 ProgramMain.currentUser = response.Item1;
@@ -46,18 +47,6 @@ namespace PawPrints
                 MessageBox.Show("An unidentified error has occured");
 
             }
-
-            //using (UploadImageForm u = new UploadImageForm(true))
-            //{
-            //    DialogResult res = u.ShowDialog();
-            //    if (res == DialogResult.OK)
-            //    {
-            //        int animalID = u.animalID;
-            //        Image img = u.imageResult;
-            //        Console.WriteLine("Okay");
-
-            //    }
-            //}
 
 
         }
