@@ -12,7 +12,11 @@ using System.Drawing;
 public class RestService
 {
 
-
+    /// <summary>
+    /// Takes a url and returns the get response
+    /// </summary>
+    /// <param name="url">full http url</param>
+    /// <returns>string response, or -2 if cannot connect to url</returns>
     public static string GetCall(string url)
     {
 
@@ -53,6 +57,10 @@ public class RestService
         }
     }
 
+    /// <summary>
+    /// returns image from url
+    /// </summary>
+    /// <param name="url"></param>
     public static Image getImageFromUrl(string url)
     {
         WebClient wc = new WebClient();
@@ -61,6 +69,12 @@ public class RestService
         return img;
     }
 
+    /// <summary>
+    /// sends a byte array as image form data to a url
+    /// </summary>
+    /// <param name="actionUrl">full http url</param>
+    /// <param name="paramString">Leave blank if null</param>
+    /// <param name="paramFileBytes">Image in byte array form</param>
     public static string sendImageToUrl(string actionUrl, string paramString, byte[] paramFileBytes)
     {
         HttpContent stringContent = new StringContent(paramString);
@@ -81,7 +95,11 @@ public class RestService
 
     }
 
-
+    /// <summary>
+    /// Takes a url and sends data as body
+    /// </summary>
+    /// <param name="url">full http url</param>
+    /// <returns>post response</returns>
     public static string PostCall(string body, string url)
     {
         try

@@ -24,6 +24,10 @@ namespace PawPrints
 
 
         #region Animal
+        /// <summary>
+        /// Gets animal from server
+        /// </summary>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<Animal, int> getAnimal(int animalID)
         {
 
@@ -44,28 +48,34 @@ namespace PawPrints
             return null;
         }
 
-        public static Tuple<List<Animal>, int> getAnimalsByShelter(int shelterID)
-        {
 
-            string result = (RestService.GetCall(baseuri + "get_pets.php?id=" + shelterID));
-            PetClass allPets = JsonConvert.DeserializeObject<PetClass>(result);
-            List<Animal> ret = new List<Animal>();
-            int temp;
-            if (int.TryParse(result, out temp))
-            {
-                return Tuple.Create((List<Animal>)null, temp);
-            }
+        //public static Tuple<List<Animal>, int> getAnimalsByShelter(int shelterID)
+        //{
 
-            foreach (Animal animal in allPets.pets)
-            {
-                if (animal.shelter_id == shelterID)
-                {
-                    ret.Add(animal);
-                }
-            }
-            return Tuple.Create(ret, 1);
-        }
+        //    string result = (RestService.GetCall(baseuri + "get_pets.php?id=" + shelterID));
+        //    PetClass allPets = JsonConvert.DeserializeObject<PetClass>(result);
+        //    List<Animal> ret = new List<Animal>();
+        //    int temp;
+        //    if (int.TryParse(result, out temp))
+        //    {
+        //        return Tuple.Create((List<Animal>)null, temp);
+        //    }
 
+        //    foreach (Animal animal in allPets.pets)
+        //    {
+        //        if (animal.shelter_id == shelterID)
+        //        {
+        //            ret.Add(animal);
+        //        }
+        //    }
+        //    return Tuple.Create(ret, 1);
+        //}
+
+        /// <summary>
+        /// Gets all animals belonging to shelter with specific id
+        /// </summary>
+        /// <param name="shelterID"></param>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<List<Animal>, int> getAllAnimals(int shelterID)
         {
 
@@ -89,6 +99,11 @@ namespace PawPrints
 
         }
 
+        /// <summary>
+        /// Adds pet to server
+        /// </summary>
+        /// <param name="pet"></param>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int addPet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet, Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
@@ -104,6 +119,10 @@ namespace PawPrints
             return -2;
         }
 
+        /// <summary>
+        /// Updates pet on server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int updatePet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
@@ -112,6 +131,10 @@ namespace PawPrints
             return int.Parse(result);
         }
 
+        /// <summary>
+        /// Deletes animal from server
+        /// </summary>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static int deleteAnimal(int petID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_pet.php?id=" + petID));
@@ -121,16 +144,20 @@ namespace PawPrints
         #endregion
 
         #region Picture
-        ////Staged as unnecessary
+        ////Staged as non critical
         //public static Tuple<List<Image>, int> getAnimalPictures(int animalID)
         //{
         //    throw new NotImplementedException();
         //}
 
+        /// <summary>
+        /// Adds profile picture to pet
+        /// </summary>
+        /// <param name="fileName">File location on disk</param>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static string addPicture(String fileName, int animalID)
         {
             FileInfo fileInfo = new FileInfo(fileName);
-
             // The byte[] to save the data in
             byte[] data = new byte[fileInfo.Length];
 
@@ -145,7 +172,11 @@ namespace PawPrints
             return s;
         }
 
-
+        /// <summary>
+        /// Gets profile picture of pet
+        /// </summary>
+        /// <param name="petID"></param>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<Image, int> getPicture(int petID)
         {
             try
@@ -172,6 +203,10 @@ namespace PawPrints
         #endregion
 
         #region Shelter
+        /// <summary>
+        /// Gets a list of all shelters on the server
+        /// </summary>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<List<Shelter>, int> getAllShelters()
         {
             string result = (RestService.GetCall(baseuri + "get_shelters.php"));
@@ -184,6 +219,10 @@ namespace PawPrints
             return Tuple.Create(totalList.shelters, 1);
         }
 
+        /// <summary>
+        /// Gets shelter on server with specific id
+        /// </summary>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<Shelter, int> getShelterByID(int shelterID)
         {
             string result = (RestService.GetCall(baseuri + "get_shelters.php?id=" + shelterID));
@@ -196,6 +235,10 @@ namespace PawPrints
             return Tuple.Create(totalList.shelters[0], 1);
         }
 
+        /// <summary>
+        /// Creates shelter on the server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int createShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
@@ -205,6 +248,10 @@ namespace PawPrints
             return int.Parse(result);
         }
 
+        /// <summary>
+        /// Updates shelter on the server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int updateShelter(Shelter shelter)
         {
             string jsonString = JsonConvert.SerializeObject(shelter);
@@ -213,6 +260,10 @@ namespace PawPrints
             return int.Parse(result);
         }
 
+        /// <summary>
+        /// Deletes shelter on the server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int deleteShelter(int shelterID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_shelter.php?id=" + shelterID));
@@ -221,6 +272,10 @@ namespace PawPrints
         #endregion
 
         #region User
+        /// <summary>
+        /// Updates user on the server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int updateUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
@@ -229,6 +284,10 @@ namespace PawPrints
             return int.Parse(result);
         }
 
+        /// <summary>
+        /// Gets a list of all users that belong to a specific shelter
+        /// </summary>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<List<User>, int> getAllUsers(int shelterID)
         {
             string result = (RestService.GetCall(baseuri + "get_users.php?id=" + shelterID));
@@ -241,6 +300,10 @@ namespace PawPrints
             return Tuple.Create(totalList.users, 1);
         }
 
+        /// <summary>
+        /// Creates user on the server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int createUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
@@ -258,6 +321,10 @@ namespace PawPrints
             return int.Parse(result);
         }
 
+        /// <summary>
+        /// Deletes user on the server
+        /// </summary>
+        /// <returns>-1 if server error, -2 if can't connect to server</returns>
         public static int deleteUsers(int userID)
         {
             string result = (RestService.PostCall("", baseuri + "delete_user.php?id=" + userID));
@@ -272,6 +339,11 @@ namespace PawPrints
             return -1;
         }
 
+        /// <summary>
+        /// Verifies that the password is correct for the specific username
+        /// </summary>
+        /// <param name="password">unhashed</param>
+        /// <returns>int is -1 if server error, -2 if can't connect to server</returns>
         public static Tuple<User, int> verifyUser(string username, string password)
         {
             JObject ob = new JObject();
@@ -292,6 +364,9 @@ namespace PawPrints
             return Tuple.Create(u, 1);
         }
 
+        /// <summary>
+        /// Returns if user is an admin
+        /// </summary>
         public static bool isUserAdmin(User u)
         {
             string result = (RestService.GetCall(baseuri + "is_admin.php?uid=" + u.id + "&sid=" + u.shelter_id));
@@ -302,6 +377,11 @@ namespace PawPrints
 
 
     }
+    /*These next three classes are only used so that
+     * the JSON data sent to the server is correctly 
+     * formatted 
+     */
+    #region JSON format classes
     class PetClass
     {
         public List<Animal> pets { get; set; }
@@ -314,4 +394,6 @@ namespace PawPrints
     {
         public List<User> users { get; set; }
     }
+    #endregion
+
 }
