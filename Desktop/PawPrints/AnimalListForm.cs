@@ -55,7 +55,7 @@ namespace PawPrints
             addForm.ShowDialog();
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        public void btnRefresh_Click(object sender, EventArgs e)
         {
             AnimalListForm_Load(sender,e);
         }

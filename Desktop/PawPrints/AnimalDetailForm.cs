@@ -47,6 +47,9 @@ namespace PawPrints
                 {
                     string fname = uploadForm.filename;
                     WebHandeler.addPicture(fname, animal.id);
+                    AnimalForm_Load(sender,e);
+                    //TODO REFRESH ANIMALLIST
+                    this.Close();
                 }
             }
 

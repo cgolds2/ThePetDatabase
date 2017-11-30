@@ -91,7 +91,6 @@ namespace PawPrints
         public static int addPet(Animal pet)
         {
             string jsonString = JsonConvert.SerializeObject(pet);
-            MessageBox.Show("JSON STRING" + jsonString);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "add_pet.php"));
             if (result.Equals("-1"))
@@ -225,7 +224,6 @@ namespace PawPrints
         public static int updateUser(User user)
         {
             string jsonString = JsonConvert.SerializeObject(user);
-            MessageBox.Show("JSON STRING" + jsonString);
             JObject ob = JObject.Parse(jsonString);
             string result = (RestService.PostCall(ob.ToString(), baseuri + "update_pet.php?id=" + user.id));
             return int.Parse(result);
